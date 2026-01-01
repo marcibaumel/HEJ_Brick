@@ -1,0 +1,35 @@
+[gd_scene load_steps=5 format=3 uid="uid://cxw0uns6qia0x"]
+
+[ext_resource type="Script" uid="uid://c6vejke2gagr0" path="res://scripts/paddle.gd" id="1_y7wee"]
+[ext_resource type="Texture2D" uid="uid://bmfkbf3q6kia7" path="res://assets/paddle.png" id="2_mo4dg"]
+
+[sub_resource type="GDScript" id="GDScript_pacq5"]
+script/source = "extends Sprite2D
+
+
+# Called when the node enters the scene tree for the first time.
+func _ready() -> void:
+	pass # Replace with function body.
+
+
+# Called every frame. 'delta' is the elapsed time since the previous frame.
+func _process(delta: float) -> void:
+	pass
+"
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y7wee"]
+radius = 13.9958
+height = 178.023
+
+[node name="Paddle" type="CharacterBody2D"]
+motion_mode = 1
+script = ExtResource("1_y7wee")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(0.3, 0.3)
+texture = ExtResource("2_mo4dg")
+script = SubResource("GDScript_pacq5")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+rotation = -1.57491
+shape = SubResource("CapsuleShape2D_y7wee")
