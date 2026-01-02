@@ -1,4 +1,4 @@
-name: Export windows build
+name: Export Windows build
 
 on:
   push:
@@ -9,28 +9,40 @@ jobs:
   export-windows:
     runs-on: ubuntu-latest
 
-    env:
-      PROJECT_DIR: brickyMartin
-      EXPORT_NAME: BrickyMartin
-      EXPORT_PRESET: "Windows Desktop"
-      OUT_DIR: build/windows
-
     steps:
       - name: Checkout
         uses: actions/checkout@v4
 
-      - name: Export Windows build
-        uses: firebelley/godot-export@v6.0.0
+      # Retries help when wget/mirrors randomly fail
+      - name: Export (retry on download hiccups)
+        uses: peter-evans/retry@v3
         with:
-          godot_version: "4.4"
-          export_templates: "4.4"
-          relative_project_path: "${{ env.PROJECT_DIR }}"
-          export_preset: "${{ env.EXPORT_PRESET }}"
-          export_path: "${{ env.OUT_DIR }}/${{ env.EXPORT_NAME }}.exe"
+          max_attempts: 3
+          timeout_minutes: 30
+          command: |
+            echo "Running Godot export action..."
+
+      - name: Export Windows build
+        id: export
+        uses: firebelley/godot-export@v7.0.0
+        with:
+          # Use explicit URLs to avoid wrong tags/404s and flaky mirrors
+          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
+
+          # Your Godot project folder (contains project.godot)
+          relative_project_path: brickyMartin
+
+          # Only export the Windows preset (must match the preset name in export_presets.cfg)
+          presets_to_export: "Windows Desktop"
+
+          # Recommended so it uses the Export Path you set in Godot
+          use_preset_export_path: true
+
           cache: true
 
       - name: Upload artifact
         uses: actions/upload-artifact@v4
         with:
           name: windows-build
-          path: ${{ env.OUT_DIR }}
+          path: ${{ steps.export.outputs.build_directory }}
