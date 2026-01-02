@@ -1,0 +1,36 @@
+name: Export windows build
+
+on:
+  push:
+    branches: ["main"]
+  pull_request:
+
+jobs:
+  export-windows:
+    runs-on: ubuntu-latest
+
+    env:
+      PROJECT_DIR: brickyMartin
+      EXPORT_NAME: BrickyMartin
+      EXPORT_PRESET: "Windows Desktop"
+      OUT_DIR: build/windows
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Export Windows build
+        uses: firebelley/godot-export@v6.0.0
+        with:
+          godot_version: "4.4"
+          export_templates: "4.4"
+          relative_project_path: "${{ env.PROJECT_DIR }}"
+          export_preset: "${{ env.EXPORT_PRESET }}"
+          export_path: "${{ env.OUT_DIR }}/${{ env.EXPORT_NAME }}.exe"
+          cache: true
+
+      - name: Upload artifact
+        uses: actions/upload-artifact@v4
+        with:
+          name: windows-build
+          path: ${{ env.OUT_DIR }}
