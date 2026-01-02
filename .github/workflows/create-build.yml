@@ -13,15 +13,6 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
 
-      # Retries help when wget/mirrors randomly fail
-      - name: Export (retry on download hiccups)
-        uses: peter-evans/retry@v3
-        with:
-          max_attempts: 3
-          timeout_minutes: 30
-          command: |
-            echo "Running Godot export action..."
-
       - name: Export Windows build
         id: export
         uses: firebelley/godot-export@v7.0.0
