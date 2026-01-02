@@ -15,3 +15,5 @@ data_*/
 mono_crash.*.json
 *.exe
 *.pck
+*.x86_64
+*.sh
