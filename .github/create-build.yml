@@ -2,7 +2,7 @@ name: Export windows build
 
 on:
   push:
-    branches: ["main"]
+    branches: ["**"]
   pull_request:
 
 jobs:
