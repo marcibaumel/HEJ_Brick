@@ -30,33 +30,27 @@ jobs:
           name: windows-build
           path: ${{ steps.export.outputs.build_directory }}
 
-      
+
+  export-linux:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Export Linux build
+        id: export
+        uses: firebelley/godot-export@v7.0.0
+        with:
+          godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
+          godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
+          relative_project_path: brickyMartin
+          presets_to_export: "Linux/X11"
+          use_preset_export_path: true
+          cache: true
+
       - name: Upload Linux artifact
         uses: actions/upload-artifact@v4
         with:
           name: linux-build
           path: ${{ steps.export.outputs.build_directory }}
-
-  # export-linux:
-  #   runs-on: ubuntu-latest
-
-  #   steps:
-  #     - name: Checkout
-  #       uses: actions/checkout@v4
-
-  #     - name: Export Linux build
-  #       id: export
-  #       uses: firebelley/godot-export@v7.0.0
-  #       with:
-  #         godot_executable_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_linux.x86_64.zip
-  #         godot_export_templates_download_url: https://github.com/godotengine/godot/releases/download/4.4.1-stable/Godot_v4.4.1-stable_export_templates.tpz
-  #         relative_project_path: brickyMartin
-  #         presets_to_export: "Linux/X11"
-  #         use_preset_export_path: true
-  #         cache: true
-
-  #     - name: Upload Linux artifact
-  #       uses: actions/upload-artifact@v4
-  #       with:
-  #         name: linux-build
-  #         path: ${{ steps.export.outputs.build_directory }}
