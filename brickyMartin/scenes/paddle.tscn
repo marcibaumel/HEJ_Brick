@@ -18,11 +18,14 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_y7wee"]
-radius = 13.9958
-height = 178.023
+height = 161.007
 
 [node name="Paddle" type="CharacterBody2D"]
 motion_mode = 1
+slide_on_ceiling = false
+wall_min_slide_angle = 0.0
+floor_snap_length = 0.0
+platform_on_leave = 2
 script = ExtResource("1_y7wee")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
@@ -31,5 +34,7 @@ texture = ExtResource("2_mo4dg")
 script = SubResource("GDScript_pacq5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(-1.49586, 0.0061536)
 rotation = -1.57491
 shape = SubResource("CapsuleShape2D_y7wee")
+one_way_collision_margin = 0.0
