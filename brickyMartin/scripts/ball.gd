@@ -1,6 +1,6 @@
 extends CharacterBody2D
 
-var speed = 200 + (20 * GameManager.level)
+var speed = 400 + (20 * GameManager.level)
 var dir = Vector2.DOWN
 var isActive= true
 

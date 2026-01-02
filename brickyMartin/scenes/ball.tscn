@@ -13,8 +13,9 @@ point_count = 2
 colors = PackedColorArray(0.777164, 0.387611, 0.866635, 1, 0.714473, 0.655486, 1, 1)
 
 [node name="ball" type="CharacterBody2D"]
-scale = Vector2(3, 3)
 slide_on_ceiling = false
+floor_stop_on_slope = false
+floor_block_on_wall = false
 platform_on_leave = 2
 script = ExtResource("1_cxlvu")
 

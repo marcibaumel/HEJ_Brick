@@ -50,7 +50,7 @@ texture = ExtResource("4_mx8sn")
 position = Vector2(0, 660)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
-position = Vector2(575.5, 7)
+position = Vector2(576, 26)
 shape = SubResource("RectangleShape2D_mx8sn")
 
 [connection signal="body_entered" from="Deadzone" to="ball" method="_on_deadzone_body_entered"]
