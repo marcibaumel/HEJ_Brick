@@ -1,10 +1,10 @@
 [gd_scene load_steps=9 format=3 uid="uid://brrnf4u6yo74o"]
 
-[ext_resource type="Script" uid="uid://dqn0ppq0vk10n" path="res://scripts/customLevel.gd" id="1_y221o"]
 [ext_resource type="PackedScene" uid="uid://cxw0uns6qia0x" path="res://scenes/paddle.tscn" id="2_8uqsj"]
 [ext_resource type="PackedScene" uid="uid://bw7f4trj5r3g1" path="res://scenes/ball.tscn" id="3_p4hxj"]
 [ext_resource type="Texture2D" uid="uid://dif6ulpo5dtwc" path="res://assets/background.png" id="4_rkrwd"]
 [ext_resource type="PackedScene" uid="uid://cdq8uxfamw0yb" path="res://scenes/bricks/customBrick.tscn" id="5_8uqsj"]
+[ext_resource type="Script" uid="uid://bu3e5ea3htlsd" path="res://scripts/level_manager.gd" id="5_p4hxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7c3h"]
 size = Vector2(25.5, 668)
@@ -16,7 +16,6 @@ size = Vector2(1175, 20)
 size = Vector2(1111, 20)
 
 [node name="CustomLevel" type="Node2D"]
-script = ExtResource("1_y221o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 328)
@@ -63,5 +62,8 @@ enableDoubleHealth = true
 
 [node name="CustomBrick3" parent="." instance=ExtResource("5_8uqsj")]
 position = Vector2(1004, 173)
+
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("5_p4hxj")
 
 [connection signal="body_entered" from="Deadzone" to="ball" method="_on_deadzone_body_entered"]

@@ -1,7 +1,7 @@
 extends RigidBody2D
 
 var health = 1;
-
+signal brickDestroyed
 @export var enableDoubleHealth: bool = false:
 	set(value):
 		enableDoubleHealth = value
@@ -29,4 +29,5 @@ func hit() -> void:
 			get_tree().reload_current_scene()
 		else:
 			await get_tree().create_timer(0.5).timeout
+			emit_signal("brickDestroyed")
 			queue_free()
