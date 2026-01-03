@@ -16,10 +16,10 @@ func _physics_process(delta: float) -> void:
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, SPEED)
 
-	velocity.y = 0.0  # important: don't accumulate y velocity
+	velocity.y = 0.0  # don't accumulate y velocity
 	move_and_slide()
 
-	# hard lock y position
+	# hard lock y position, this is a hack but it works 
 	global_position.y = lockedYAxis
 
 	paddleVelocity = (global_position - prev_pos) / delta

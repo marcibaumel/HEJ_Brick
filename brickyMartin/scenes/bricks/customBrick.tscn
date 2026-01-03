@@ -1,0 +1,40 @@
+[gd_scene load_steps=5 format=3 uid="uid://cdq8uxfamw0yb"]
+
+[ext_resource type="Script" uid="uid://djt6fqi5jc61k" path="res://scripts/brick.gd" id="1_lase2"]
+[ext_resource type="Texture2D" uid="uid://bl615d216itbc" path="res://assets/brick.png" id="2_do2d7"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0w5h4"]
+size = Vector2(52.4, 52.9333)
+
+[sub_resource type="Gradient" id="Gradient_0w5h4"]
+colors = PackedColorArray(0.761533, 0.0647106, 0.347074, 1, 0.830285, 0.146144, 0.168325, 1)
+
+[node name="CustomBrick" type="RigidBody2D"]
+gravity_scale = 0.0
+script = ExtResource("1_lase2")
+
+[node name="Sprite2D" type="Sprite2D" parent="."]
+scale = Vector2(3, 3)
+texture = ExtResource("2_do2d7")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." groups=["Brick"]]
+position = Vector2(2, 2)
+scale = Vector2(3, 3)
+shape = SubResource("RectangleShape2D_0w5h4")
+
+[node name="CPUParticles2D" type="CPUParticles2D" parent="."]
+emitting = false
+amount = 100
+lifetime = 0.5
+one_shot = true
+preprocess = 0.5
+randomness = 1.0
+draw_order = 1
+emission_shape = 1
+emission_sphere_radius = 24.0
+gravity = Vector2(0, -500)
+linear_accel_min = 0.1
+linear_accel_max = 0.1
+scale_amount_min = 0.0
+scale_amount_max = 2.0
+color_ramp = SubResource("Gradient_0w5h4")

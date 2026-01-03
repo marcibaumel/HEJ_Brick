@@ -17,6 +17,7 @@ func _physics_process(delta: float) -> void:
 			if collision.get_collider().has_method("hit"):
 			#I don't like this :(
 				collision.get_collider().hit()
+				
 			
 		if (velocity.y > 0 and velocity.y < 100):
 			velocity.y = -200

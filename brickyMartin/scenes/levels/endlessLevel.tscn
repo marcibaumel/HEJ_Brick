@@ -1,0 +1,56 @@
+[gd_scene load_steps=8 format=3 uid="uid://c8624l6ihmo1l"]
+
+[ext_resource type="Script" uid="uid://cjto6o43maplp" path="res://scripts/endlessLevel.gd" id="1_xhgr3"]
+[ext_resource type="PackedScene" uid="uid://cxw0uns6qia0x" path="res://scenes/paddle.tscn" id="2_71vb3"]
+[ext_resource type="PackedScene" uid="uid://bw7f4trj5r3g1" path="res://scenes/ball.tscn" id="3_c6sah"]
+[ext_resource type="Texture2D" uid="uid://dif6ulpo5dtwc" path="res://assets/background.png" id="4_65t8m"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w7c3h"]
+size = Vector2(25.5, 668)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
+size = Vector2(1175, 20)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
+size = Vector2(1111, 20)
+
+[node name="EndlessLevel" type="Node2D"]
+script = ExtResource("1_xhgr3")
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(576, 328)
+
+[node name="Paddle" parent="." instance=ExtResource("2_71vb3")]
+position = Vector2(545, 602)
+
+[node name="ball" parent="." instance=ExtResource("3_c6sah")]
+position = Vector2(560, 414)
+
+[node name="walls" type="StaticBody2D" parent="."]
+
+[node name="LeftWall" type="CollisionShape2D" parent="walls"]
+position = Vector2(0.5, 324)
+shape = SubResource("RectangleShape2D_w7c3h")
+
+[node name="RightWall" type="CollisionShape2D" parent="walls"]
+position = Vector2(1154, 324)
+shape = SubResource("RectangleShape2D_w7c3h")
+
+[node name="Celling" type="CollisionShape2D" parent="walls"]
+position = Vector2(577.5, 0)
+shape = SubResource("RectangleShape2D_w8frs")
+
+[node name="Background" type="Sprite2D" parent="."]
+modulate = Color(1, 1, 1, 0.258824)
+z_index = -1
+position = Vector2(589, 315)
+texture = ExtResource("4_65t8m")
+
+[node name="Deadzone" type="Area2D" parent="."]
+position = Vector2(0, 660)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
+position = Vector2(576, 26)
+shape = SubResource("RectangleShape2D_mx8sn")
+
+[connection signal="body_entered" from="Deadzone" to="ball" method="_on_deadzone_body_entered"]

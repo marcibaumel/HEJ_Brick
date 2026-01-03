@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://durp7bi8hfpa1"]
 
-[ext_resource type="Script" uid="uid://djt6fqi5jc61k" path="res://scripts/brick.gd" id="1_0w5h4"]
-[ext_resource type="Texture2D" uid="uid://bl615d216itbc" path="res://assets/brick.png" id="1_5l4w1"]
+[ext_resource type="Script" uid="uid://djt6fqi5jc61k" path="res://scripts/brick.gd" id="1_7oinx"]
+[ext_resource type="Texture2D" uid="uid://bl615d216itbc" path="res://assets/brick.png" id="2_ou3qe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w5h4"]
 size = Vector2(28, 27)
@@ -11,14 +11,13 @@ colors = PackedColorArray(0.761533, 0.0647106, 0.347074, 1, 0.830285, 0.146144, 
 
 [node name="Brick" type="RigidBody2D" groups=["Brick"]]
 gravity_scale = 0.0
-script = ExtResource("1_0w5h4")
+script = ExtResource("1_7oinx")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.5, 0.5)
-texture = ExtResource("1_5l4w1")
+texture = ExtResource("2_ou3qe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-visible = false
 position = Vector2(0, 0.5)
 shape = SubResource("RectangleShape2D_0w5h4")
 

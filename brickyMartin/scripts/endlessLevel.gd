@@ -1,6 +1,7 @@
 extends Node2D
 
-@onready var brickObject = preload("res://scenes/brick.tscn")
+@onready var brickObject = preload("res://scenes/bricks/brick.tscn")
+
 var columns = 32
 var rows = 7
 var margin = 50
@@ -22,6 +23,7 @@ func setupLevel() -> void:
 			var randomNumber = randi_range(0,2)
 			if(randomNumber > 0):
 				var newBrick = brickObject.instantiate()
+				# newBrick.enableDoubleHealth = true
 				add_child(newBrick)
 				newBrick.position = Vector2(margin + (34 * column), margin + (34 * row))
 				

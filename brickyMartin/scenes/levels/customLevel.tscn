@@ -1,9 +1,10 @@
-[gd_scene load_steps=8 format=3 uid="uid://c8624l6ihmo1l"]
+[gd_scene load_steps=9 format=3 uid="uid://brrnf4u6yo74o"]
 
-[ext_resource type="PackedScene" uid="uid://cxw0uns6qia0x" path="res://scenes/paddle.tscn" id="1_2q6dc"]
-[ext_resource type="Script" uid="uid://cjto6o43maplp" path="res://scripts/level.gd" id="1_w8frs"]
-[ext_resource type="PackedScene" uid="uid://bw7f4trj5r3g1" path="res://scenes/ball.tscn" id="2_w7c3h"]
-[ext_resource type="Texture2D" uid="uid://dif6ulpo5dtwc" path="res://assets/background.png" id="4_mx8sn"]
+[ext_resource type="Script" uid="uid://dqn0ppq0vk10n" path="res://scripts/customLevel.gd" id="1_y221o"]
+[ext_resource type="PackedScene" uid="uid://cxw0uns6qia0x" path="res://scenes/paddle.tscn" id="2_8uqsj"]
+[ext_resource type="PackedScene" uid="uid://bw7f4trj5r3g1" path="res://scenes/ball.tscn" id="3_p4hxj"]
+[ext_resource type="Texture2D" uid="uid://dif6ulpo5dtwc" path="res://assets/background.png" id="4_rkrwd"]
+[ext_resource type="PackedScene" uid="uid://cdq8uxfamw0yb" path="res://scenes/bricks/customBrick.tscn" id="5_8uqsj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7c3h"]
 size = Vector2(25.5, 668)
@@ -14,17 +15,17 @@ size = Vector2(1175, 20)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
 size = Vector2(1111, 20)
 
-[node name="Level" type="Node2D"]
-script = ExtResource("1_w8frs")
+[node name="CustomLevel" type="Node2D"]
+script = ExtResource("1_y221o")
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 328)
 
-[node name="Paddle" parent="." instance=ExtResource("1_2q6dc")]
+[node name="Paddle" parent="." instance=ExtResource("2_8uqsj")]
 position = Vector2(545, 602)
 
-[node name="ball" parent="." instance=ExtResource("2_w7c3h")]
-position = Vector2(712, 414)
+[node name="ball" parent="." instance=ExtResource("3_p4hxj")]
+position = Vector2(689, 414)
 
 [node name="walls" type="StaticBody2D" parent="."]
 
@@ -41,10 +42,10 @@ position = Vector2(577.5, 0)
 shape = SubResource("RectangleShape2D_w8frs")
 
 [node name="Background" type="Sprite2D" parent="."]
-modulate = Color(1, 1, 1, 0.258824)
+modulate = Color(0.576471, 0.513726, 0.27451, 0)
 z_index = -1
 position = Vector2(589, 315)
-texture = ExtResource("4_mx8sn")
+texture = ExtResource("4_rkrwd")
 
 [node name="Deadzone" type="Area2D" parent="."]
 position = Vector2(0, 660)
@@ -52,5 +53,15 @@ position = Vector2(0, 660)
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
 position = Vector2(576, 26)
 shape = SubResource("RectangleShape2D_mx8sn")
+
+[node name="CustomBrick" parent="." instance=ExtResource("5_8uqsj")]
+position = Vector2(132, 177)
+
+[node name="CustomBrick2" parent="." instance=ExtResource("5_8uqsj")]
+position = Vector2(549, 177)
+enableDoubleHealth = true
+
+[node name="CustomBrick3" parent="." instance=ExtResource("5_8uqsj")]
+position = Vector2(1004, 173)
 
 [connection signal="body_entered" from="Deadzone" to="ball" method="_on_deadzone_body_entered"]

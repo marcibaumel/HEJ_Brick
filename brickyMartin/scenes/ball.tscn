@@ -12,7 +12,7 @@ point_count = 2
 [sub_resource type="Gradient" id="Gradient_f7cbr"]
 colors = PackedColorArray(0.777164, 0.387611, 0.866635, 1, 0.714473, 0.655486, 1, 1)
 
-[node name="ball" type="CharacterBody2D"]
+[node name="Ball" type="CharacterBody2D"]
 slide_on_ceiling = false
 floor_stop_on_slope = false
 floor_block_on_wall = false
