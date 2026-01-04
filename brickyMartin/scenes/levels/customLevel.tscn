@@ -61,7 +61,6 @@ position = Vector2(132, 177)
 
 [node name="CustomBrick2" parent="LevelManager" instance=ExtResource("5_8uqsj")]
 position = Vector2(549, 177)
-enableDoubleHealth = true
 
 [node name="CustomBrick3" parent="LevelManager" instance=ExtResource("5_8uqsj")]
 position = Vector2(1004, 173)

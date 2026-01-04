@@ -1,1 +1,26 @@
-<svg xmlns="http://www.w3.org/2000/svg" width="128" height="128"><rect width="124" height="124" x="2" y="2" fill="#363d52" stroke="#212532" stroke-width="4" rx="14"/><g fill="#fff" transform="translate(12.322 12.322)scale(.101)"><path d="M105 673v33q407 354 814 0v-33z"/><path fill="#478cbf" d="m105 673 152 14q12 1 15 14l4 67 132 10 8-61q2-11 15-15h162q13 4 15 15l8 61 132-10 4-67q3-13 15-14l152-14V427q30-39 56-81-35-59-83-108-43 20-82 47-40-37-88-64 7-51 8-102-59-28-123-42-26 43-46 89-49-7-98 0-20-46-46-89-64 14-123 42 1 51 8 102-48 27-88 64-39-27-82-47-48 49-83 108 26 42 56 81zm0 33v39c0 276 813 276 814 0v-39l-134 12-5 69q-2 10-14 13l-162 11q-12 0-16-11l-10-65H446l-10 65q-4 11-16 11l-162-11q-12-3-14-13l-5-69z"/><path d="M483 600c0 34 58 34 58 0v-86c0-34-58-34-58 0z"/><circle cx="725" cy="526" r="90"/><circle cx="299" cy="526" r="90"/></g><g fill="#414042" transform="translate(12.322 12.322)scale(.101)"><circle cx="307" cy="532" r="60"/><circle cx="717" cy="532" r="60"/></g></svg>
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+<svg width="100%" height="100%" viewBox="0 0 128 128" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" xml:space="preserve" xmlns:serif="http://www.serif.com/" style="fill-rule:evenodd;clip-rule:evenodd;stroke-linecap:round;stroke-linejoin:round;stroke-miterlimit:1.5;">
+    <g id="Layer1">
+        <g transform="matrix(1.18473,0,0,1.11334,-27.078,-17.0205)">
+            <ellipse cx="92.16" cy="93.729" rx="54.419" ry="56.445" style="fill:rgb(180,70,70);"/>
+        </g>
+        <g transform="matrix(1,0,0,1,-17.7798,-0.830832)">
+            <ellipse cx="69.728" cy="78.307" rx="15.869" ry="28.83" style="fill:rgb(251,240,240);"/>
+        </g>
+        <g transform="matrix(0.583893,0,0,0.904306,11.1853,-4.0062)">
+            <ellipse cx="58.428" cy="90.105" rx="12.379" ry="17.364"/>
+        </g>
+        <g transform="matrix(1,0,0,1,33.8979,-0.664665)">
+            <ellipse cx="69.728" cy="78.307" rx="15.869" ry="28.83" style="fill:rgb(251,240,240);"/>
+        </g>
+        <g transform="matrix(0.630872,0,0,1,72.6636,-11.6316)">
+            <ellipse cx="58.428" cy="90.105" rx="12.379" ry="17.364"/>
+        </g>
+        <g transform="matrix(1,0,0,1,9.80381,-8.97298)">
+            <path d="M62.499,108.134C67.928,115.059 72.247,114.889 75.46,107.635" style="fill:none;stroke:black;stroke-width:1px;"/>
+        </g>
+    </g>
+    <g id="Layer2">
+    </g>
+</svg>
