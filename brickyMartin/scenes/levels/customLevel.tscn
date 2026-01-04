@@ -64,5 +64,6 @@ position = Vector2(549, 177)
 
 [node name="CustomBrick3" parent="LevelManager" instance=ExtResource("5_8uqsj")]
 position = Vector2(1004, 173)
+enableDoubleHealth = true
 
 [connection signal="body_entered" from="Deadzone" to="ball" method="_on_deadzone_body_entered"]
