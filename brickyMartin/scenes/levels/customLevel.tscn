@@ -53,17 +53,17 @@ position = Vector2(0, 660)
 position = Vector2(576, 26)
 shape = SubResource("RectangleShape2D_mx8sn")
 
-[node name="CustomBrick" parent="." instance=ExtResource("5_8uqsj")]
+[node name="LevelManager" type="Node" parent="."]
+script = ExtResource("5_p4hxj")
+
+[node name="CustomBrick" parent="LevelManager" instance=ExtResource("5_8uqsj")]
 position = Vector2(132, 177)
 
-[node name="CustomBrick2" parent="." instance=ExtResource("5_8uqsj")]
+[node name="CustomBrick2" parent="LevelManager" instance=ExtResource("5_8uqsj")]
 position = Vector2(549, 177)
 enableDoubleHealth = true
 
-[node name="CustomBrick3" parent="." instance=ExtResource("5_8uqsj")]
+[node name="CustomBrick3" parent="LevelManager" instance=ExtResource("5_8uqsj")]
 position = Vector2(1004, 173)
-
-[node name="LevelManager" type="Node" parent="."]
-script = ExtResource("5_p4hxj")
 
 [connection signal="body_entered" from="Deadzone" to="ball" method="_on_deadzone_body_entered"]

@@ -1,10 +1,10 @@
 extends Node
 
-func _ready() -> void:
-	#TODO: Setup signal connection
-	connect("brickDestroyed", levelManager)
-	
+func _process(_delta):
+	if get_child_count() == 0:
+		print("lofasz")
 
-func levelManager() -> void:
-	var bricksLeft = get_tree().get_nodes_in_group('Brick')
-	print(bricksLeft.str())
+func _input(event):
+	if event.is_action_pressed("destroy_children"):
+		for child in get_children():
+			child.queue_free()
