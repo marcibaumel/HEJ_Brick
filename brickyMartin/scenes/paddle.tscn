@@ -82,12 +82,12 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7wee"]
-size = Vector2(30.407, 188.998)
+size = Vector2(10.362, 188.998)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pacq5"]
 size = Vector2(174, 12)
 
-[node name="Paddle" type="CharacterBody2D"]
+[node name="Paddle" type="CharacterBody2D" groups=["Paddle"]]
 motion_mode = 1
 slide_on_ceiling = false
 wall_min_slide_angle = 0.0
@@ -110,7 +110,7 @@ texture = ExtResource("2_mo4dg")
 script = SubResource("GDScript_pacq5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-3.50883, -22.1481)
+position = Vector2(-3.55006, -32.1705)
 rotation = -1.57491
 shape = SubResource("RectangleShape2D_y7wee")
 one_way_collision_margin = 0.0

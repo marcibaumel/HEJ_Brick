@@ -12,7 +12,7 @@ size = Vector2(25.5, 668)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
 size = Vector2(1175, 20)
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_mx8sn"]
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_8uqsj"]
 size = Vector2(1111, 20)
 
 [node name="CustomLevel" type="Node2D"]
@@ -20,11 +20,8 @@ size = Vector2(1111, 20)
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 328)
 
-[node name="Paddle" parent="." instance=ExtResource("2_8uqsj")]
+[node name="Paddle" parent="." groups=["Paddle"] instance=ExtResource("2_8uqsj")]
 position = Vector2(545, 602)
-
-[node name="ball" parent="." instance=ExtResource("3_p4hxj")]
-position = Vector2(689, 414)
 
 [node name="walls" type="StaticBody2D" parent="."]
 
@@ -46,12 +43,10 @@ z_index = -1
 position = Vector2(589, 315)
 texture = ExtResource("4_rkrwd")
 
-[node name="Deadzone" type="Area2D" parent="."]
-position = Vector2(0, 660)
-
-[node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
-position = Vector2(576, 26)
-shape = SubResource("RectangleShape2D_mx8sn")
+[node name="Ball" parent="." instance=ExtResource("3_p4hxj")]
+position = Vector2(810, 383)
+motion_mode = 1
+slide_on_ceiling = true
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("5_p4hxj")
@@ -66,4 +61,11 @@ position = Vector2(549, 177)
 position = Vector2(1004, 173)
 enableDoubleHealth = true
 
-[connection signal="body_entered" from="Deadzone" to="ball" method="_on_deadzone_body_entered"]
+[node name="Deadzone" type="Area2D" parent="."]
+position = Vector2(0, 660)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
+position = Vector2(576, 26)
+shape = SubResource("RectangleShape2D_8uqsj")
+
+[connection signal="body_entered" from="Deadzone" to="Ball" method="_on_deadzone_body_entered"]

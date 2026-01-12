@@ -18,6 +18,17 @@ func _physics_process(delta: float) -> void:
 		velocity.x = direction * SPEED
 	else:
 		velocity.x = move_toward(velocity.x, 0.0, SPEED)
+	
+	# TODO: unify the movement logic
+	
+	if velocity.x > 0:
+		rotation_degrees = 10
+		
+	if velocity.x < 0:
+		rotation_degrees = - 10
+		
+	if velocity.x == 0:
+		rotation_degrees = 0
 
 	velocity.y = 0.0  # don't accumulate y velocity
 	move_and_slide()
