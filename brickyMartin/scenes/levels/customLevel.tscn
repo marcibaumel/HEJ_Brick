@@ -7,44 +7,47 @@
 [ext_resource type="Script" uid="uid://bu3e5ea3htlsd" path="res://scripts/level_manager.gd" id="5_p4hxj"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w7c3h"]
-size = Vector2(25.5, 668)
+size = Vector2(40, 1292)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_w8frs"]
-size = Vector2(1175, 20)
+size = Vector2(2248, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uqsj"]
-size = Vector2(1111, 20)
+size = Vector2(2319, 33)
 
 [node name="CustomLevel" type="Node2D"]
 
 [node name="Camera2D" type="Camera2D" parent="."]
 position = Vector2(576, 328)
+zoom = Vector2(0.5, 0.5)
 
-[node name="Paddle" parent="." groups=["Paddle"] instance=ExtResource("2_8uqsj")]
-position = Vector2(545, 602)
+[node name="Paddle" parent="." instance=ExtResource("2_8uqsj")]
+position = Vector2(542, 924)
 
 [node name="walls" type="StaticBody2D" parent="."]
+position = Vector2(-82, 0)
 
 [node name="LeftWall" type="CollisionShape2D" parent="walls"]
-position = Vector2(0.5, 324)
+position = Vector2(-492, 324)
 shape = SubResource("RectangleShape2D_w7c3h")
 
 [node name="RightWall" type="CollisionShape2D" parent="walls"]
-position = Vector2(1154, 324)
+position = Vector2(1812, 324)
 shape = SubResource("RectangleShape2D_w7c3h")
 
 [node name="Celling" type="CollisionShape2D" parent="walls"]
-position = Vector2(577.5, 0)
+position = Vector2(662, -320)
 shape = SubResource("RectangleShape2D_w8frs")
 
 [node name="Background" type="Sprite2D" parent="."]
 modulate = Color(0.576471, 0.513726, 0.27451, 0)
 z_index = -1
-position = Vector2(589, 315)
+position = Vector2(576.5, 348)
+scale = Vector2(1.72842, 1.73958)
 texture = ExtResource("4_rkrwd")
 
 [node name="Ball" parent="." instance=ExtResource("3_p4hxj")]
-position = Vector2(810, 383)
+position = Vector2(810, 591)
 motion_mode = 1
 slide_on_ceiling = true
 
@@ -65,7 +68,7 @@ enableDoubleHealth = true
 position = Vector2(0, 660)
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
-position = Vector2(576, 26)
+position = Vector2(571.5, 336.5)
 shape = SubResource("RectangleShape2D_8uqsj")
 
 [connection signal="body_entered" from="Deadzone" to="Ball" method="_on_deadzone_body_entered"]
