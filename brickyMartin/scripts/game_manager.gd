@@ -8,6 +8,9 @@ func addPoints(points: int) -> void:
 	score += points
 
 func _process(delta: float) -> void:
+	if ProjectSettings.get_setting("application/dev_mode"):
+		print("Running in dev mode")
+
 	var current_scene = get_tree().current_scene
 	var is_menu = current_scene != null and current_scene.name == "MainMenu"
 

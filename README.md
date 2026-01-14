@@ -13,7 +13,7 @@ This is a repository about january HEJ game jam.
 
 ## Disclaimer
 
-- This repository not contains any AI generated content (even the code was written by me <img src="./asset/sadhamstergirl.gif" width="20">)
+- This repository not contains any AI generated content <img src="./asset/sadhamstergirl.gif" width="20">
 
 ## What I used
 
