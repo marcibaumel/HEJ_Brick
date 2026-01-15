@@ -8,7 +8,7 @@ func addPoints(points: int) -> void:
 	score += points
 
 func _process(delta: float) -> void:
-	if ProjectSettings.get_setting("application/dev_mode"):
+	if DevMode.is_dev_mode:
 		print("Running in dev mode")
 
 	var current_scene = get_tree().current_scene
@@ -20,6 +20,11 @@ func _process(delta: float) -> void:
 		$CanvasLayer.visible = true
 		$CanvasLayer/Score.text = str(score)
 		$CanvasLayer/Level.text = "Level: " + str(level)
+	
+	if DevMode.is_dev_mode:
+		$CanvasLayer/Mode.text = "DEV MODE"
+	else:
+		$CanvasLayer/Mode.text = "NORMAL MODE"
 
 func _input(event):
 	if event.is_action_pressed("quit_game"):

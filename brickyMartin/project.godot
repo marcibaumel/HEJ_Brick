@@ -15,9 +15,11 @@ run/main_scene="uid://brrnf4u6yo74o"
 config/features=PackedStringArray("4.4", "Forward Plus")
 config/icon="uid://xov62fw74vcc"
 dev_mode=true
+application/dev_mode=true
 
 [autoload]
 
+DevMode="*res://scripts/dev_mode.gd"
 GameManager="*res://scenes/game_manager.tscn"
 
 [display]
