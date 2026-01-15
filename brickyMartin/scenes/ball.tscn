@@ -10,7 +10,7 @@ _data = [Vector2(0.00546448, 1), 0.0, 0.0, 0, 0, Vector2(0.857923, 0.0565636), 0
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_f7cbr"]
-colors = PackedColorArray(0.777164, 0.387611, 0.866635, 1, 0.714473, 0.655486, 1, 1)
+colors = PackedColorArray(0.255465, 0.584232, 0.954142, 1, 0.714473, 0.655486, 1, 1)
 
 [node name="Ball" type="CharacterBody2D" groups=["Ball"]]
 slide_on_ceiling = false
