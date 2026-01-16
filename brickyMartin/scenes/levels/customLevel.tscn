@@ -400,9 +400,11 @@ frame_progress = 0.612367
 
 [node name="Paddle" parent="." instance=ExtResource("2_8uqsj")]
 position = Vector2(542, 924)
+collision_mask = 2
 
 [node name="walls" type="StaticBody2D" parent="."]
 position = Vector2(-82, 0)
+collision_mask = 3
 
 [node name="LeftWall" type="CollisionShape2D" parent="walls"]
 position = Vector2(-492, 324)
@@ -415,11 +417,6 @@ shape = SubResource("RectangleShape2D_w7c3h")
 [node name="Celling" type="CollisionShape2D" parent="walls"]
 position = Vector2(662, -320)
 shape = SubResource("RectangleShape2D_w8frs")
-
-[node name="Ball" parent="." instance=ExtResource("3_p4hxj")]
-position = Vector2(810, 591)
-motion_mode = 1
-slide_on_ceiling = true
 
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("5_p4hxj")
@@ -441,4 +438,6 @@ position = Vector2(0, 660)
 position = Vector2(571.5, 336.5)
 shape = SubResource("RectangleShape2D_8uqsj")
 
-[connection signal="body_entered" from="Deadzone" to="Ball" method="_on_deadzone_body_entered"]
+[node name="Ball" parent="." instance=ExtResource("3_p4hxj")]
+position = Vector2(855, 521)
+collision_mask = 3

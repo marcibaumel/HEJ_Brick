@@ -1,15 +1,23 @@
-[gd_scene load_steps=3 format=3 uid="uid://vekmau783yx"]
+[gd_scene load_steps=4 format=3 uid="uid://vekmau783yx"]
 
 [ext_resource type="Texture2D" uid="uid://dam55htdr8mwe" path="res://assets/ball.png" id="1_1m54x"]
+[ext_resource type="Script" uid="uid://bfoo8fgpn8n7n" path="res://scripts/exp.gd" id="1_7gp3u"]
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_7gp3u"]
 radius = 131.309
 
-[node name="Exp" type="RigidBody2D"]
+[node name="Exp" type="RigidBody2D" groups=["Exp"]]
+collision_layer = 2
+collision_mask = 2
+script = ExtResource("1_7gp3u")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 modulate = Color(0.236926, 0.658457, 0.827326, 1)
+scale = Vector2(0.5, 0.5)
 texture = ExtResource("1_1m54x")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+scale = Vector2(0.5, 0.5)
 shape = SubResource("CircleShape2D_7gp3u")
+
+[node name="VisibleOnScreenNotifier2D" type="VisibleOnScreenNotifier2D" parent="."]

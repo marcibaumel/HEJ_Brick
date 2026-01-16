@@ -3,6 +3,7 @@ extends RigidBody2D
 @export var health = 1;
 @export var enableDoubleHealth: bool = false
 @export var enableAbilitiyDoubleBall: bool = false
+@export var exp_scene: PackedScene = preload("res://scenes/exp.tscn")
 
 var baseColour = "#ffffff"
 
@@ -21,9 +22,22 @@ func hit() -> void:
 
 func destroyBrick() -> void:
 	GameManager.addPoints(1)
+
+	spawn_exp()
+
 	$Sprite2D.visible = false
 	$CollisionShape2D.disabled = true
 	$CPUParticles2D.emitting = true
 		
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
+
+func spawn_exp() -> void:
+	if exp_scene == null:
+		return
+
+	var exp := exp_scene.instantiate()
+	get_parent().add_child(exp)
+
+	# Place it where the brick was
+	exp.global_position = global_position

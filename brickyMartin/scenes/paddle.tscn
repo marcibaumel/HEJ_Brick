@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cxw0uns6qia0x"]
+[gd_scene load_steps=17 format=3 uid="uid://cxw0uns6qia0x"]
 
 [ext_resource type="Script" uid="uid://c6vejke2gagr0" path="res://scripts/paddle.gd" id="1_y7wee"]
 [ext_resource type="Texture2D" uid="uid://bhdhdp5vtjt0i" path="res://assets/paddle_hit.png" id="2_kvcsl"]
@@ -87,6 +87,10 @@ size = Vector2(10.362, 188.998)
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pacq5"]
 size = Vector2(174, 12)
 
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pacq5"]
+radius = 118.0
+height = 238.0
+
 [node name="Paddle" type="CharacterBody2D" groups=["Paddle"]]
 motion_mode = 1
 slide_on_ceiling = false
@@ -121,5 +125,13 @@ one_way_collision_margin = 0.0
 position = Vector2(-1, -47)
 shape = SubResource("RectangleShape2D_pacq5")
 
+[node name="expDetaction" type="Area2D" parent="."]
+collision_layer = 2
+collision_mask = 2
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="expDetaction"]
+shape = SubResource("CapsuleShape2D_pacq5")
+
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]
+[connection signal="body_entered" from="expDetaction" to="." method="_on_exp_detaction_body_entered"]

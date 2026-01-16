@@ -44,6 +44,9 @@ func interact_with_ball() -> void:
 
 
 func _on_area_2d_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Exp"):
+		print("exp detected!")
+	
 	is_active = false
 	animatedSprite.play("hit")
 
@@ -51,3 +54,12 @@ func _on_area_2d_body_entered(body: Node2D) -> void:
 func _on_area_2d_body_exited(body: Node2D) -> void:
 	is_active = false
 	animatedSprite.play("idle")
+
+
+func _on_exp_detaction_body_entered(body:Node2D) -> void:
+	print("Paddle touched:", body.name, " groups:", body.get_groups())
+	if body.is_in_group("Exp"):
+		print("Paddle collected exp!")
+		GameManager.addExp(10)
+	body.queue_free()
+
