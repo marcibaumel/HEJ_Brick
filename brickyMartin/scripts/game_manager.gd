@@ -2,11 +2,7 @@ extends Node
 
 var score = 0
 var level = 1
-var exp_points = 0
-
-
-func addPoints(points: int) -> void:
-	score += points
+var _exp_points = 0
 
 func _process(delta: float) -> void:
 	var current_scene = get_tree().current_scene
@@ -25,9 +21,15 @@ func _process(delta: float) -> void:
 		$CanvasLayer/Mode.text = "NORMAL MODE"
 
 func addExp(points: int) -> void:
-	exp_points += points
-	if exp_points >= level * 10:
-		exp_points = 0
+	# Scale points based on level (increase by 10% per level)
+	var scaled_points = points
+	if level > 1:
+		scaled_points = int(points * (1.0 + (level - 1) * 0.1))
+	
+	_exp_points += scaled_points
+	score += scaled_points
+	if _exp_points >= level * 10:
+		_exp_points = 0
 		level += 1
 		print("Level up! New level:", level)
 

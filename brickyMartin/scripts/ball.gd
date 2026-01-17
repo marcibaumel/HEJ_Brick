@@ -13,15 +13,20 @@ func _physics_process(delta: float) -> void:
 		
 		if collision:
 			var collider = collision.get_collider()
+			
+			# Check if this is a brick
+			if collision.get_collider().has_method("hit"):
+				collision.get_collider().hit()
+				# If brick was destroyed, just pass through without bouncing
+				if collider.is_destroyed:
+					return
+			
+			# Bounce off the collision
 			velocity = velocity.bounce(collision.get_normal())
 			
 			if collider.is_in_group("paddles"):
 				var paddle_rotation = collider.rotation_degrees
 				velocity.x += paddle_rotation * 2
-			
-			if collision.get_collider().has_method("hit"):
-			#I don't like this :(
-				collision.get_collider().hit()
 			
 			# TODO: For maintain speed, I need to check somehow how this is working 
 			velocity = velocity.normalized() * speed
@@ -31,13 +36,3 @@ func _physics_process(delta: float) -> void:
 		
 		if velocity.x == 0:
 			velocity.x = -200
-		
-
-func gameOver() -> void:
-	GameManager.score = 0
-	GameManager.level = 1
-	get_tree().reload_current_scene()
-
-# TODO: make sure if we copy the level the signal stay as it is
-func _on_deadzone_body_entered(body: Node2D) -> void:
-	gameOver()

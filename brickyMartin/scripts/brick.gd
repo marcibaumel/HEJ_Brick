@@ -1,4 +1,4 @@
-extends RigidBody2D
+extends StaticBody2D
 
 @export var health = 1;
 @export var enableDoubleHealth: bool = false
@@ -6,6 +6,7 @@ extends RigidBody2D
 @export var exp_scene: PackedScene = preload("res://scenes/exp.tscn")
 
 var baseColour = "#ffffff"
+var is_destroyed = false
 
 func _ready() -> void:
 	if enableDoubleHealth:
@@ -21,13 +22,16 @@ func hit() -> void:
 		$Sprite2D.modulate = baseColour
 
 func destroyBrick() -> void:
-	GameManager.addPoints(1)
-
+	is_destroyed = true
 	spawn_exp()
 
 	$Sprite2D.visible = false
 	$CollisionShape2D.disabled = true
 	$CPUParticles2D.emitting = true
+	
+	# Disable the rigid body so it doesn't push the ball back
+	set_collision_layer(0)
+	set_collision_mask(0)
 		
 	await get_tree().create_timer(0.5).timeout
 	queue_free()

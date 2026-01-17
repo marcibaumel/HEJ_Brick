@@ -8,3 +8,5 @@ func _input(event):
 	if event.is_action_pressed("destroy_children"):
 		for child in get_children():
 			child.queue_free()
+	
+	#TODO: Add level up logic here
