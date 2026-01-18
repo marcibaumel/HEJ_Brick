@@ -7,7 +7,7 @@ extends Node2D
 @export var brick_width: float = 100.0
 @export var brick_height: float = 100.0
 
-@export var spawn_interval: float = 3.0
+@export var spawn_interval: float = 1.0
 @export_range(0.0, 1.0, 0.01) var empty_chance: float = 0.15
 @export var empty_means_skip_spawn: bool = true
 
@@ -33,6 +33,7 @@ var _colors: Array[Color] = [
 
 
 func _ready() -> void:
+	pass
 	_rng.randomize()
 	set_physics_process(true)
 

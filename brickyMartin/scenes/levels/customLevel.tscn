@@ -430,13 +430,11 @@ collision_mask = 4
 position = Vector2(571.5, 336.5)
 shape = SubResource("RectangleShape2D_8uqsj")
 
-[node name="Ball" parent="." instance=ExtResource("3_p4hxj")]
-position = Vector2(855, 521)
-collision_layer = 5
-collision_mask = 5
-
 [node name="BrickSpawn" type="Marker2D" parent="."]
 position = Vector2(510, -279)
 gizmo_extents = 1000.0
+
+[node name="Ball" parent="." instance=ExtResource("3_p4hxj")]
+position = Vector2(857, 621)
 
 [connection signal="body_entered" from="Deadzone" to="." method="_on_deadzone_body_entered"]

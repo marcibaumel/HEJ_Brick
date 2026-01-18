@@ -45,3 +45,8 @@ func spawn_exp() -> void:
 
 	# Place it where the brick was
 	exp.global_position = global_position
+
+
+func _on_paddle_detect_body_entered(body: Node2D) -> void:
+	if body.is_in_group("Paddle"):
+		queue_free()

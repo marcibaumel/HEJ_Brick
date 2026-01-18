@@ -1,13 +1,16 @@
-[gd_scene load_steps=5 format=3 uid="uid://durp7bi8hfpa1"]
+[gd_scene load_steps=6 format=3 uid="uid://durp7bi8hfpa1"]
 
 [ext_resource type="Script" uid="uid://djt6fqi5jc61k" path="res://scripts/brick.gd" id="1_7oinx"]
 [ext_resource type="Texture2D" uid="uid://bl615d216itbc" path="res://assets/brick.png" id="2_ou3qe"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_0w5h4"]
-size = Vector2(28, 27)
+size = Vector2(30, 31.5)
 
 [sub_resource type="Gradient" id="Gradient_0w5h4"]
 colors = PackedColorArray(0.761533, 0.0647106, 0.347074, 1, 0.830285, 0.146144, 0.168325, 1)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_7oinx"]
+size = Vector2(122, 100)
 
 [node name="Brick" type="StaticBody2D" groups=["Brick"]]
 script = ExtResource("1_7oinx")
@@ -16,7 +19,7 @@ script = ExtResource("1_7oinx")
 texture = ExtResource("2_ou3qe")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 0.5)
+position = Vector2(0, -0.5)
 scale = Vector2(2, 2)
 shape = SubResource("RectangleShape2D_0w5h4")
 
@@ -36,3 +39,11 @@ linear_accel_max = 0.1
 scale_amount_min = 0.0
 scale_amount_max = 2.0
 color_ramp = SubResource("Gradient_0w5h4")
+
+[node name="PaddleDetect" type="Area2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="PaddleDetect"]
+position = Vector2(-2, 2)
+shape = SubResource("RectangleShape2D_7oinx")
+
+[connection signal="body_entered" from="PaddleDetect" to="." method="_on_paddle_detect_body_entered"]
