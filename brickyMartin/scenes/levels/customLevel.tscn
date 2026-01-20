@@ -5,8 +5,8 @@
 [ext_resource type="Texture2D" uid="uid://cybej27n7y0hf" path="res://assets/467741044.png" id="2_p4hxj"]
 [ext_resource type="PackedScene" uid="uid://bw7f4trj5r3g1" path="res://scenes/ball.tscn" id="3_p4hxj"]
 [ext_resource type="Texture2D" uid="uid://dif6ulpo5dtwc" path="res://assets/background.png" id="4_rkrwd"]
-[ext_resource type="PackedScene" uid="uid://cdq8uxfamw0yb" path="res://scenes/bricks/customBrick.tscn" id="5_8uqsj"]
 [ext_resource type="Script" uid="uid://bu3e5ea3htlsd" path="res://scripts/level_manager.gd" id="5_p4hxj"]
+[ext_resource type="PackedScene" uid="uid://dqukco60s700d" path="res://scenes/update_scene.tscn" id="7_rkrwd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkrwd"]
 atlas = ExtResource("2_p4hxj")
@@ -373,7 +373,7 @@ size = Vector2(40, 1292)
 size = Vector2(2248, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uqsj"]
-size = Vector2(2319, 33)
+size = Vector2(2817, 29.5)
 
 [node name="CustomLevel" type="Node2D"]
 script = ExtResource("1_rkrwd")
@@ -402,7 +402,6 @@ frame_progress = 0.612367
 
 [node name="Paddle" parent="." instance=ExtResource("2_8uqsj")]
 position = Vector2(542, 924)
-collision_mask = 3
 
 [node name="walls" type="StaticBody2D" parent="."]
 position = Vector2(-82, 0)
@@ -423,28 +422,26 @@ shape = SubResource("RectangleShape2D_w8frs")
 [node name="LevelManager" type="Node" parent="."]
 script = ExtResource("5_p4hxj")
 
-[node name="CustomBrick" parent="LevelManager" instance=ExtResource("5_8uqsj")]
-position = Vector2(132, 177)
-
-[node name="CustomBrick2" parent="LevelManager" instance=ExtResource("5_8uqsj")]
-position = Vector2(549, 177)
-
-[node name="CustomBrick3" parent="LevelManager" instance=ExtResource("5_8uqsj")]
-position = Vector2(1004, 173)
-enableDoubleHealth = true
-
 [node name="Deadzone" type="Area2D" parent="."]
 position = Vector2(0, 660)
 collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
-position = Vector2(571.5, 336.5)
+position = Vector2(604, 477)
 shape = SubResource("RectangleShape2D_8uqsj")
 
+[node name="BrickSpawn" type="Marker2D" parent="."]
+position = Vector2(510, -279)
+gizmo_extents = 1000.0
+
+[node name="BallSpawn" type="Marker2D" parent="."]
+position = Vector2(1457, -64)
+
 [node name="Ball" parent="." instance=ExtResource("3_p4hxj")]
-position = Vector2(855, 521)
-collision_layer = 5
-collision_mask = 7
+position = Vector2(857, 621)
+
+[node name="UpdateScene" parent="." instance=ExtResource("7_rkrwd")]
+visible = false
 
 [connection signal="body_entered" from="Deadzone" to="." method="_on_deadzone_body_entered"]

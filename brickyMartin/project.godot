@@ -20,6 +20,7 @@ application/dev_mode=true
 [autoload]
 
 DevMode="*res://scripts/dev_mode.gd"
+UpdateScene="*res://scenes/update_scene.tscn"
 GameManager="*res://scenes/game_manager.tscn"
 
 [display]

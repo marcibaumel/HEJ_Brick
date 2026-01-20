@@ -10,16 +10,16 @@ _data = [Vector2(0.00546448, 1), 0.0, 0.0, 0, 0, Vector2(0.857923, 0.0565636), 0
 point_count = 2
 
 [sub_resource type="Gradient" id="Gradient_f7cbr"]
-colors = PackedColorArray(0.255465, 0.584232, 0.954142, 1, 0.714473, 0.655486, 1, 1)
+colors = PackedColorArray(0.839125, 0.471491, 2.11775e-06, 1, 0.976471, 0.87451, 0, 1)
 
 [node name="Ball" type="CharacterBody2D" groups=["Ball"]]
+collision_layer = 5
 slide_on_ceiling = false
-floor_stop_on_slope = false
-floor_block_on_wall = false
 platform_on_leave = 2
 script = ExtResource("1_cxlvu")
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
+modulate = Color(0.913725, 0.74902, 0, 1)
 scale = Vector2(0.1, 0.1)
 texture = ExtResource("1_7s4qf")
 
