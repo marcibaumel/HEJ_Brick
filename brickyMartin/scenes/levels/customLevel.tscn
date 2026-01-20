@@ -373,7 +373,7 @@ size = Vector2(40, 1292)
 size = Vector2(2248, 30)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_8uqsj"]
-size = Vector2(2319, 33)
+size = Vector2(2817, 29.5)
 
 [node name="CustomLevel" type="Node2D"]
 script = ExtResource("1_rkrwd")
@@ -428,7 +428,7 @@ collision_layer = 4
 collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Deadzone"]
-position = Vector2(571.5, 336.5)
+position = Vector2(604, 477)
 shape = SubResource("RectangleShape2D_8uqsj")
 
 [node name="BrickSpawn" type="Marker2D" parent="."]

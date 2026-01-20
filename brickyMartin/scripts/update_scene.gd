@@ -14,3 +14,22 @@ func _on_button_pressed() -> void:
 func show_update_scene() -> void:
 	visible = true
 	get_tree().paused = true
+
+
+func _on_ballsize_pressed() -> void:
+	var level := get_tree().current_scene
+	if level.has_method("add_ball"):
+		level.increase_all_balls_size()
+
+	visible = false
+	get_tree().paused = false
+
+
+
+func _on_pickup_pressed() -> void:
+	var level := get_tree().current_scene
+	if level.has_method("add_ball"):
+		level.grow_all_paddles_exp_detection()
+
+	visible = false
+	get_tree().paused = false

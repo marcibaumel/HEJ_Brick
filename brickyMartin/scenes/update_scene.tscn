@@ -32,14 +32,16 @@ layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "BALL+"
 
-[node name="Button2" type="Button" parent="HBoxContainer"]
+[node name="pickup" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "PICKUP"
 
-[node name="Button3" type="Button" parent="HBoxContainer"]
+[node name="ballsize" type="Button" parent="HBoxContainer"]
 layout_mode = 2
 theme_override_font_sizes/font_size = 80
 text = "BALL SIZE"
 
 [connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
+[connection signal="pressed" from="HBoxContainer/pickup" to="." method="_on_pickup_pressed"]
+[connection signal="pressed" from="HBoxContainer/ballsize" to="." method="_on_ballsize_pressed"]

@@ -14,10 +14,7 @@ colors = PackedColorArray(0.839125, 0.471491, 2.11775e-06, 1, 0.976471, 0.87451,
 
 [node name="Ball" type="CharacterBody2D" groups=["Ball"]]
 collision_layer = 5
-collision_mask = 5
 slide_on_ceiling = false
-floor_stop_on_slope = false
-floor_block_on_wall = false
 platform_on_leave = 2
 script = ExtResource("1_cxlvu")
 

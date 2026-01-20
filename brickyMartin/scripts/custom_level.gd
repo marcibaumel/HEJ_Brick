@@ -2,6 +2,7 @@ extends Node2D
 
 @onready var BrickScene: PackedScene = preload("res://scenes/bricks/brick.tscn")
 @onready var BallScene: PackedScene = preload("res://scenes/ball.tscn")
+
 @onready var ball_spawn := $BallSpawn
 @onready var BrickSpawn: Node2D = get_node("BrickSpawn")
 
@@ -16,6 +17,8 @@ extends Node2D
 @export var fall_speed: float = 20.0
 @export var spawn_above_ceiling: float = 0.0
 @export var kill_y: float = 2000.0
+
+var ballIncrease = 1
 
 const BRICK_GROUP := "falling_bricks"
 
@@ -126,12 +129,49 @@ func gameOver() -> void:
 
 func add_ball() -> void:
 	var ball := BallScene.instantiate()
+	_increase_single_ball_size(ball, ballIncrease)
 	add_child(ball)
 	ball.global_position = ball_spawn.global_position
 
 	# Optional: slightly different direction
 	var angle := randf_range(-0.5, 0.5)
 	ball.velocity = Vector2(-1, 1).normalized().rotated(angle) * ball.speed
+
+func increase_all_balls_size(multiplier: float = 1.1) -> void:
+	ballIncrease *= multiplier
+	for ball in get_tree().get_nodes_in_group("Ball"):
+		if not is_instance_valid(ball):
+			continue
+		if ball is CharacterBody2D:
+			_increase_single_ball_size(ball, multiplier)
+
+func _increase_single_ball_size(ball: CharacterBody2D, multiplier: float) -> void:
+	# Scale sprite
+	# var sprite := ball.get_node_or_null("Sprite2D")
+	# if sprite:
+	# 	sprite.scale *= multiplier
+
+	# # Scale collision shape properly
+	# var collision := ball.get_node_or_null("CollisionShape2D")
+	# if collision and collision.shape is CircleShape2D:
+	# 	var shape := collision.shape as CircleShape2D
+	# 	shape.radius *= multiplier
+	ball.scale *= multiplier
+
+func grow_all_paddles_exp_detection(multiplier: float = 1.05) -> void:
+	for paddle in get_tree().get_nodes_in_group("Paddle"):
+		_grow_paddle_exp_detection(paddle, multiplier)
+
+func _grow_paddle_exp_detection(paddle: Node, multiplier: float) -> void:
+	var p := paddle as Node2D
+	if not p:
+		return
+
+	var exp_detection := p.get_node_or_null("expDetaction") as Area2D
+	if not exp_detection:
+		return
+	else:
+		exp_detection.scale *= multiplier
 
 
 func _check_balls_left() -> void:
