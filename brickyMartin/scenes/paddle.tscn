@@ -101,6 +101,7 @@ platform_on_leave = 2
 script = ExtResource("1_y7wee")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+modulate = Color(0, 1, 1, 1)
 texture_filter = 1
 position = Vector2(-1.00001, -7.62939e-06)
 scale = Vector2(8.14687, 8.14687)
@@ -110,6 +111,7 @@ autoplay = "idle"
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 visible = false
+modulate = Color(0.38702, 0.774759, 0.705818, 1)
 scale = Vector2(0.3, 0.3)
 texture = ExtResource("2_mo4dg")
 script = SubResource("GDScript_pacq5")
@@ -127,6 +129,7 @@ position = Vector2(-1, -47)
 shape = SubResource("RectangleShape2D_pacq5")
 
 [node name="expDetaction" type="Area2D" parent="."]
+visible = false
 collision_layer = 2
 collision_mask = 2
 

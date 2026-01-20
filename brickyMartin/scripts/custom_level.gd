@@ -1,6 +1,8 @@
 extends Node2D
 
 @onready var BrickScene: PackedScene = preload("res://scenes/bricks/brick.tscn")
+@onready var BallScene: PackedScene = preload("res://scenes/ball.tscn")
+@onready var ball_spawn := $BallSpawn
 @onready var BrickSpawn: Node2D = get_node("BrickSpawn")
 
 @export var margin: float = 1.0
@@ -112,10 +114,32 @@ func _make_brick_empty(brick: Node) -> void:
 
 
 func _on_deadzone_body_entered(body: Node2D) -> void:
-	gameOver()
+	if body.is_in_group("Ball"):
+		body.queue_free()
+		call_deferred("_check_balls_left")
 
 
 func gameOver() -> void:
 	GameManager.score = 0
 	GameManager.level = 1
 	get_tree().reload_current_scene()
+
+func add_ball() -> void:
+	var ball := BallScene.instantiate()
+	add_child(ball)
+	ball.global_position = ball_spawn.global_position
+
+	# Optional: slightly different direction
+	var angle := randf_range(-0.5, 0.5)
+	ball.velocity = Vector2(-1, 1).normalized().rotated(angle) * ball.speed
+
+
+func _check_balls_left() -> void:
+	var count := 0
+	# Remove invalid refs and count what's actually still alive
+	for b in get_tree().get_nodes_in_group("Ball"):
+		if is_instance_valid(b):
+			count += 1
+		
+	if count == 1:
+		gameOver()

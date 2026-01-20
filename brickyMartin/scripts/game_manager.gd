@@ -30,9 +30,13 @@ func addExp(points: int) -> void:
 	score += scaled_points
 	if _exp_points >= level * 10:
 		_exp_points = 0
-		level += 1
-		print("Level up! New level:", level)
+		levelUp()
 
 func _input(event):
 	if event.is_action_pressed("quit_game"):
 		get_tree().quit()
+
+func levelUp() -> void:
+	level += 1
+	print("Level up! New level:", level)
+	$UpdateScene.show_update_scene()
