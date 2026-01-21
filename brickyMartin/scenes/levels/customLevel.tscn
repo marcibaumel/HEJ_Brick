@@ -6,7 +6,7 @@
 [ext_resource type="PackedScene" uid="uid://bw7f4trj5r3g1" path="res://scenes/ball.tscn" id="3_p4hxj"]
 [ext_resource type="Texture2D" uid="uid://dif6ulpo5dtwc" path="res://assets/background.png" id="4_rkrwd"]
 [ext_resource type="Script" uid="uid://bu3e5ea3htlsd" path="res://scripts/level_manager.gd" id="5_p4hxj"]
-[ext_resource type="PackedScene" uid="uid://dqukco60s700d" path="res://scenes/update_scene.tscn" id="7_rkrwd"]
+[ext_resource type="PackedScene" uid="uid://csshqhix1rbkj" path="res://scenes/update_scene.tscn" id="7_rkrwd"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkrwd"]
 atlas = ExtResource("2_p4hxj")

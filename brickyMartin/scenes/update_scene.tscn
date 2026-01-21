@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://dqukco60s700d"]
+[gd_scene load_steps=3 format=3 uid="uid://csshqhix1rbkj"]
 
 [ext_resource type="Script" uid="uid://cw4cvl4fof3ge" path="res://scripts/update_scene.gd" id="1_vkgge"]
+[ext_resource type="PackedScene" uid="uid://duqj1jxw4btxl" path="res://scenes/ability_button.tscn" id="2_qvnkn"]
 
 [node name="UpdateScene" type="CanvasLayer"]
 process_mode = 3
@@ -27,21 +28,5 @@ size_flags_horizontal = 4
 theme_override_constants/separation = 60
 alignment = 1
 
-[node name="Button" type="Button" parent="HBoxContainer"]
+[node name="AbilityButton" parent="HBoxContainer" instance=ExtResource("2_qvnkn")]
 layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "BALL+"
-
-[node name="pickup" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "PICKUP"
-
-[node name="ballsize" type="Button" parent="HBoxContainer"]
-layout_mode = 2
-theme_override_font_sizes/font_size = 80
-text = "BALL SIZE"
-
-[connection signal="pressed" from="HBoxContainer/Button" to="." method="_on_button_pressed"]
-[connection signal="pressed" from="HBoxContainer/pickup" to="." method="_on_pickup_pressed"]
-[connection signal="pressed" from="HBoxContainer/ballsize" to="." method="_on_ballsize_pressed"]

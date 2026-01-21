@@ -1,0 +1,22 @@
+[
+  {
+    "id": "ball_plus",
+    "display_text": "BALL+",
+    "method": "add_ball"
+  },
+  {
+    "id": "size_plus",
+    "display_text": "SIZE+",
+    "method": "increase_all_balls_size"
+  },
+  {
+    "id": "range_plus",
+    "display_text": "RANGE+",
+    "method": "grow_all_paddles_exp_detection"
+  },
+  {
+  "id": "speed_up",
+  "display_text": "SPEED+",
+  "method": "increase_all_balls_speed"
+}
+]

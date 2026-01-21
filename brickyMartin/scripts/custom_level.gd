@@ -19,6 +19,7 @@ extends Node2D
 @export var kill_y: float = 2000.0
 
 var ballIncrease = 1
+var ballSpeedMultiplier: float = 1.0
 
 const BRICK_GROUP := "falling_bricks"
 
@@ -137,6 +138,19 @@ func add_ball() -> void:
 	var angle := randf_range(-0.5, 0.5)
 	ball.velocity = Vector2(-1, 1).normalized().rotated(angle) * ball.speed
 
+
+func increase_all_balls_speed(multiplier: float = 1.2) -> void:
+	ballSpeedMultiplier *= multiplier
+	for ball in get_tree().get_nodes_in_group("Ball"):
+		if is_instance_valid(ball):
+
+			if "speed" in ball:
+				ball.speed *= multiplier
+            
+			if ball is CharacterBody2D:
+				ball.velocity = ball.velocity.normalized() * ball.speed
+    
+   
 func increase_all_balls_size(multiplier: float = 1.1) -> void:
 	ballIncrease *= multiplier
 	for ball in get_tree().get_nodes_in_group("Ball"):
@@ -150,7 +164,6 @@ func _increase_single_ball_size(ball: CharacterBody2D, multiplier: float) -> voi
 	# var sprite := ball.get_node_or_null("Sprite2D")
 	# if sprite:
 	# 	sprite.scale *= multiplier
-
 	# # Scale collision shape properly
 	# var collision := ball.get_node_or_null("CollisionShape2D")
 	# if collision and collision.shape is CircleShape2D:
