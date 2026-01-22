@@ -119,8 +119,11 @@ func _make_brick_empty(brick: Node) -> void:
 
 func _on_deadzone_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Ball"):
+		GameManager.reduceHealth(1)
 		body.queue_free()
-		call_deferred("_check_balls_left")
+		add_ball()
+		# if(GameManager.health != 0):
+		# 	call_deferred("_check_balls_left")
 
 
 func gameOver() -> void:
@@ -146,10 +149,10 @@ func increase_all_balls_speed(multiplier: float = 1.2) -> void:
 
 			if "speed" in ball:
 				ball.speed *= multiplier
-            
+			
 			if ball is CharacterBody2D:
 				ball.velocity = ball.velocity.normalized() * ball.speed
-    
+	
    
 func increase_all_balls_size(multiplier: float = 1.1) -> void:
 	ballIncrease *= multiplier
@@ -160,15 +163,6 @@ func increase_all_balls_size(multiplier: float = 1.1) -> void:
 			_increase_single_ball_size(ball, multiplier)
 
 func _increase_single_ball_size(ball: CharacterBody2D, multiplier: float) -> void:
-	# Scale sprite
-	# var sprite := ball.get_node_or_null("Sprite2D")
-	# if sprite:
-	# 	sprite.scale *= multiplier
-	# # Scale collision shape properly
-	# var collision := ball.get_node_or_null("CollisionShape2D")
-	# if collision and collision.shape is CircleShape2D:
-	# 	var shape := collision.shape as CircleShape2D
-	# 	shape.radius *= multiplier
 	ball.scale *= multiplier
 
 func grow_all_paddles_exp_detection(multiplier: float = 1.05) -> void:

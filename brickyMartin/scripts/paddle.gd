@@ -59,6 +59,7 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 func _on_exp_detaction_body_entered(body:Node2D) -> void:
 	print("Paddle touched:", body.name, " groups:", body.get_groups())
 	if body.is_in_group("Exp"):
+		#TODO: Add heal function here
 		print("Paddle collected exp!")
 		GameManager.addExp(10)
 	body.queue_free()

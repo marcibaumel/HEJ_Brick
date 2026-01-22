@@ -37,14 +37,18 @@ func destroyBrick() -> void:
 	queue_free()
 
 func spawn_exp() -> void:
-	if exp_scene == null:
-		return
+	if exp_scene == null: return
 
-	var exp := exp_scene.instantiate()
-	get_parent().add_child(exp)
+	var drop := exp_scene.instantiate()
+	get_parent().add_child(drop)
+	drop.global_position = global_position
 
-	# Place it where the brick was
-	exp.global_position = global_position
+    # CHANGED: randf() < 0.2 means a 20% chance for heal. 
+    # If you leave it at 1.0, it will ALWAYS be a heal.
+	if randf() < 0.5:
+		drop.init_item("heal", Color.CHARTREUSE)
+	else:
+		drop.init_item("xp", Color.SKY_BLUE)
 
 
 func _on_paddle_detect_body_entered(body: Node2D) -> void:
