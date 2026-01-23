@@ -15,8 +15,13 @@
     "method": "grow_all_paddles_exp_detection"
   },
   {
-  "id": "speed_up",
-  "display_text": "SPEED+",
-  "method": "increase_all_balls_speed"
-}
+    "id": "speed_up",
+    "display_text": "SPEED+",
+    "method": "increase_all_balls_speed"
+  },
+  {
+    "id": "increase_max_health",
+    "display_text": "MAX HEALTH+",
+    "method": "increase_max_health"
+  }
 ]

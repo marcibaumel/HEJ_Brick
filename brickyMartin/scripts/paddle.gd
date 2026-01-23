@@ -56,10 +56,21 @@ func _on_area_2d_body_exited(body: Node2D) -> void:
 	animatedSprite.play("idle")
 
 
-func _on_exp_detaction_body_entered(body:Node2D) -> void:
-	print("Paddle touched:", body.name, " groups:", body.get_groups())
+func _on_exp_detaction_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Exp"):
-		print("Paddle collected exp!")
-		GameManager.addExp(10)
-	body.queue_free()
-
+        # Access the 'type' variable directly from the orb's script
+		var item_type = body.get("type") 
+        
+		if item_type == "heal":
+			print("Paddle collected a HEAL!")
+			#TODO: Refactor this
+			GameManager.heal(1)
+		else:
+			print("Paddle collected XP!")
+			GameManager.addExp(10) # Your custom XP amount
+		
+		# Visual feedback
+		animatedSprite.play("hit")
+		
+		# Remove the orb so it doesn't stay on screen
+		body.queue_free()
