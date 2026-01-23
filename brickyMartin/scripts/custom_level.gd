@@ -153,7 +153,10 @@ func increase_all_balls_speed(multiplier: float = 1.2) -> void:
 			if ball is CharacterBody2D:
 				ball.velocity = ball.velocity.normalized() * ball.speed
 	
-   
+
+func increase_max_health(amount: int = 2) -> void:
+	GameManager.increaseMaxHealth(amount)
+
 func increase_all_balls_size(multiplier: float = 1.1) -> void:
 	ballIncrease *= multiplier
 	for ball in get_tree().get_nodes_in_group("Ball"):
