@@ -17,8 +17,12 @@ uniform float pixel_grid_intensity : hint_range(0.0, 0.5) = 0.01;
 // Color & Artifacts
 uniform float chromatic_aberration : hint_range(0.0, 1.0) = 0.0015;
 
+// frequency in hertz * 10
+uniform float flicker_frequency : hint_range(1.0, 3000.0) = 2500.0;
 // Flicker: Lowered frequency (20.0 instead of 50.0) and lower default intensity
-uniform float flicker_intensity : hint_range(0.0, 0.1) = 0.002; 
+uniform float flicker_intensity : hint_range(0.0, 0.1) = 0.002;
+// Capping the sin function
+uniform float flicker_cap : hint_range(0.0, 1.0) = 0.20;
 
 // Vignette: Made very subtle
 uniform float vignette_multiplier : hint_range(0.0, 2.0) = 0.2;
@@ -42,7 +46,7 @@ void fragment() {
     float grid = sin(warped_uv.x * scanline_count * 10.0);
     color *= (1.0 - pixel_grid_intensity) + (grid + 1.0) * 0.5 * pixel_grid_intensity;
 
-    float flicker = sin(TIME * 30.0) * flicker_intensity;
+    float flicker = (sin(TIME * flicker_frequency) * flicker_intensity) * flicker_cap;
     color += flicker;
 
     float dist = length(centered_uv);
