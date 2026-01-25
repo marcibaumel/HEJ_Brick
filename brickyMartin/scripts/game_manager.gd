@@ -5,6 +5,43 @@ var level = 1
 var _exp_points = 0
 var maxHealth = 5
 var health = 5
+var save_data = {
+	"high_score": 0
+}
+
+const SAVE_PATH = "user://bricky/save_game.dat"
+
+func _ready():
+	print(ProjectSettings.globalize_path("user://"))
+	load_game()
+
+
+func save_game():
+	var dir_path = "user://bricky"
+	DirAccess.make_dir_recursive_absolute(
+		ProjectSettings.globalize_path(dir_path)
+	)
+
+	var file = FileAccess.open(SAVE_PATH, FileAccess.WRITE)
+	if file:
+		file.store_var(save_data)
+		file.close()
+		print("Saved to:", ProjectSettings.globalize_path(SAVE_PATH))
+	else:
+		print("Failed to save game")
+
+
+func load_game():
+	if FileAccess.file_exists(SAVE_PATH):
+		var file = FileAccess.open(SAVE_PATH, FileAccess.READ)
+		if file:
+			var loaded_data = file.get_var()
+			file.close()
+
+			if loaded_data is Dictionary:
+				save_data.merge(loaded_data, true) 
+				print("Game Loaded:", save_data)				
+	
 
 func _process(delta: float) -> void:
 	var current_scene = get_tree().current_scene
@@ -51,12 +88,18 @@ func reduceHealth(amount: int) -> void:
 	var currentHealth = health - amount
 	if(currentHealth <= 0):
 		#TODO: Add proper game over window
+		
+		if score > save_data["high_score"]:
+			save_data["high_score"] = score
+			print("New High Score!")	
+		save_game()
 		score = 0
 		level = 1
 		health = maxHealth
 		get_tree().reload_current_scene()
 	else:
 		health = currentHealth
+
 
 func heal(amount: int) -> void:
 	var currentHealth = health + amount
