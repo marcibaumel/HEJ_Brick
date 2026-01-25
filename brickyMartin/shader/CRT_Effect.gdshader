@@ -3,7 +3,7 @@ render_mode unshaded;
 
 uniform sampler2D screen_texture: hint_screen_texture, filter_linear_mipmap;
 
-uniform float brightness : hint_range(0.5, 2.0) = 1.15; 
+uniform float brightness : hint_range(0.5, 2.0) = 1.15;
 uniform float curvature : hint_range(0.0, 10.0) = 3.0;
 
 // Scanlines
@@ -31,7 +31,7 @@ void fragment() {
     vec2 centered_uv = SCREEN_UV * 2.0 - 1.0;
     vec2 uv_offset = centered_uv.yx / curvature;
     vec2 warped_uv = (centered_uv + centered_uv * uv_offset * uv_offset + 1.0) / 2.0;
-    
+
     float cutoff = step(0.0, warped_uv.x) * step(warped_uv.x, 1.0) * step(0.0, warped_uv.y) * step(warped_uv.y, 1.0);
 
     float r = textureLod(screen_texture, warped_uv + vec2(chromatic_aberration, 0.0), 0.0).r;
@@ -40,7 +40,7 @@ void fragment() {
     vec3 color = vec3(r, g, b);
 
     float scanline = sin(warped_uv.y * scanline_count * 3.14 + (TIME * scanline_speed));
-    scanline = (scanline + 1.0) / 2.0; 
+    scanline = (scanline + 1.0) / 2.0;
     color -= scanline * scanline_opacity;
 
     float grid = sin(warped_uv.x * scanline_count * 10.0);

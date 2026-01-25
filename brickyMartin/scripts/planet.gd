@@ -28,7 +28,7 @@ func _draw():
 	var health_ratio = float(GameManager.health) / float(GameManager.maxHealth)
 	health_ratio = clamp(health_ratio, 0.0, 1.0)
 	
-	var fill_color = Color(Color.SKY_BLUE, 0.3) # More transparent fill
+	var fill_color = Color(Color.YELLOW_GREEN, 0.3) # More transparent fill
 	
 	draw_arc(
 		Vector2.ZERO, 
