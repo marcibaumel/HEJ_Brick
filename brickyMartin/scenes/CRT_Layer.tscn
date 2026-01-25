@@ -1,0 +1,28 @@
+[gd_scene load_steps=4 format=3 uid="uid://djhvys50wrlyj"]
+
+[ext_resource type="Shader" uid="uid://4aqsql2vtxq4" path="res://shader/CRT_Effect.gdshader" id="1_tdey3"]
+
+[sub_resource type="ShaderMaterial" id="ShaderMaterial_waxap"]
+resource_local_to_scene = true
+shader = ExtResource("1_tdey3")
+shader_parameter/brightness = 1.3
+shader_parameter/curvature = 7.0
+shader_parameter/scanline_count = 300.0
+shader_parameter/scanline_speed = -5.0
+shader_parameter/scanline_opacity = 0.15
+shader_parameter/pixel_grid_intensity = 0.15
+shader_parameter/chromatic_aberration = 0.001
+shader_parameter/flicker_frequency = 2500.0
+shader_parameter/flicker_intensity = 0.02
+shader_parameter/flicker_cap = 0.124
+shader_parameter/vignette_multiplier = 2.0
+
+[sub_resource type="QuadMesh" id="QuadMesh_waxap"]
+size = Vector2(1152, 648)
+center_offset = Vector3(576, 324, 0)
+
+[node name="CanvasLayer" type="CanvasLayer"]
+
+[node name="MeshInstance2D" type="MeshInstance2D" parent="."]
+material = SubResource("ShaderMaterial_waxap")
+mesh = SubResource("QuadMesh_waxap")

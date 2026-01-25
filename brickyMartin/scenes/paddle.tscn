@@ -82,7 +82,7 @@ func _process(delta: float) -> void:
 "
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_y7wee"]
-size = Vector2(10.362, 233.986)
+size = Vector2(73.4149, 233.986)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_pacq5"]
 size = Vector2(174, 12)
@@ -117,7 +117,7 @@ texture = ExtResource("2_mo4dg")
 script = SubResource("GDScript_pacq5")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(-2.00279, -32.1769)
+position = Vector2(-1.8731, -0.6507)
 rotation = -1.57491
 shape = SubResource("RectangleShape2D_y7wee")
 one_way_collision_margin = 0.0

@@ -88,6 +88,22 @@ theme_override_styles/pressed = SubResource("StyleBoxFlat_3d1i7")
 theme_override_styles/normal = SubResource("StyleBoxFlat_c7uy4")
 text = "Options"
 
+[node name="Score" type="Button" parent="MenuButtonContainer"]
+layout_mode = 2
+size_flags_vertical = 3
+theme_override_colors/font_disabled_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_pressed_color = Color(0, 0, 0, 1)
+theme_override_colors/font_hover_color = Color(0, 0, 0, 1)
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_focus_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 30
+theme_override_styles/focus = SubResource("StyleBoxEmpty_qkhwq")
+theme_override_styles/hover = SubResource("StyleBoxFlat_qkhwq")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_3d1i7")
+theme_override_styles/normal = SubResource("StyleBoxFlat_c7uy4")
+text = "High Score"
+
 [node name="ExitButton" type="Button" parent="MenuButtonContainer"]
 layout_mode = 2
 size_flags_vertical = 3
@@ -119,7 +135,7 @@ theme_override_constants/shadow_offset_y = 5
 theme_override_constants/outline_size = 3
 theme_override_fonts/font = ExtResource("1_qkhwq")
 theme_override_font_sizes/font_size = 120
-text = "BrickyMartin"
+text = "Super Ozone Layer"
 
 [connection signal="pressed" from="MenuButtonContainer/StartButton" to="." method="_on_start_button_pressed"]
 [connection signal="pressed" from="MenuButtonContainer/ExitButton" to="." method="_on_exit_button_pressed"]
