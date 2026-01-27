@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://d2vs7f4jx7c26"]
+[gd_scene load_steps=3 format=3 uid="uid://d2vs7f4jx7c26"]
 
 [ext_resource type="Script" uid="uid://dv7fxhy5h2ywk" path="res://scripts/pause_menu.gd" id="1_n87rw"]
+[ext_resource type="PackedScene" uid="uid://djhvys50wrlyj" path="res://scenes/CRT_Layer.tscn" id="2_myx47"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -12,6 +13,9 @@ anchor_bottom = 0.5
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_n87rw")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("2_myx47")]
+visible = false
 
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1

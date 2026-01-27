@@ -1,7 +1,8 @@
-[gd_scene load_steps=7 format=3 uid="uid://c2o2rcnvjwl1s"]
+[gd_scene load_steps=8 format=3 uid="uid://c2o2rcnvjwl1s"]
 
 [ext_resource type="Script" uid="uid://bc0dadxgltsl5" path="res://scripts/main_menu.gd" id="1_3d1i7"]
 [ext_resource type="FontFile" uid="uid://dw8bkt3xw86mf" path="res://assets/fonts/GrapeSoda.ttf" id="1_qkhwq"]
+[ext_resource type="PackedScene" uid="uid://djhvys50wrlyj" path="res://scenes/CRT_Layer.tscn" id="3_48ign"]
 
 [sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_qkhwq"]
 
@@ -40,6 +41,8 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 script = ExtResource("1_3d1i7")
+
+[node name="CanvasLayer" parent="." instance=ExtResource("3_48ign")]
 
 [node name="MenuButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
