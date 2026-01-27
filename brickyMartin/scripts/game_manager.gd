@@ -6,6 +6,11 @@ var level = 1
 var _exp_points = 0
 var maxHealth = 5
 var health = 5
+var audioLevel: float = 0.5:
+	set(value):
+		audioLevel = clamp(value, 0.0, 1.0)
+		_update_audio_bus()
+
 var save_data = {
 	"high_score": 0
 }
@@ -15,7 +20,17 @@ const SAVE_PATH = "user://bricky/save_game.dat"
 func _ready():
 	print(ProjectSettings.globalize_path("user://"))
 	load_game()
+	_update_audio_bus()
 
+func _update_audio_bus() -> void:
+	# 0 is usually the "Master" bus index
+	var bus_index = AudioServer.get_bus_index("Master")
+	# Convert 0.0 -> 1.0 range to Decibels
+	# linear_to_db(0) is -80 (silent), linear_to_db(1) is 0 (full)
+	AudioServer.set_bus_volume_db(bus_index, linear_to_db(audioLevel))
+	
+	# Optional: Mute if volume is 0
+	AudioServer.set_bus_mute(bus_index, audioLevel <= 0.05)
 
 func save_game():
 	var dir_path = "user://bricky"
