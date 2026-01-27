@@ -23,5 +23,10 @@
     "id": "increase_max_health",
     "display_text": "MAX HEALTH+",
     "method": "increase_max_health"
+  },
+    {
+    "id": "increase_speed",
+    "display_text": "PADDLE+",
+    "method": "increase_speed"
   }
 ]

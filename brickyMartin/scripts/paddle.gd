@@ -1,6 +1,5 @@
 extends CharacterBody2D
 
-const SPEED = 1000.0
 var paddleVelocity := Vector2.ZERO
 var lockedYAxis: float
 var is_active := true
@@ -15,9 +14,9 @@ func _physics_process(delta: float) -> void:
 
 	var direction := Input.get_axis("ui_left", "ui_right")
 	if direction != 0.0:
-		velocity.x = direction * SPEED
+		velocity.x = direction * GameManager.speed
 	else:
-		velocity.x = move_toward(velocity.x, 0.0, SPEED)
+		velocity.x = move_toward(velocity.x, 0.0, GameManager.speed)
 	
 	# TODO: unify the movement logic
 	

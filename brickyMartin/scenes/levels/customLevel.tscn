@@ -1,4 +1,4 @@
-[gd_scene load_steps=64 format=3 uid="uid://brrnf4u6yo74o"]
+[gd_scene load_steps=65 format=3 uid="uid://brrnf4u6yo74o"]
 
 [ext_resource type="Script" uid="uid://bch8v47hkqixf" path="res://scripts/custom_level.gd" id="1_rkrwd"]
 [ext_resource type="PackedScene" uid="uid://cxw0uns6qia0x" path="res://scenes/paddle.tscn" id="2_8uqsj"]
@@ -9,6 +9,7 @@
 [ext_resource type="Script" uid="uid://bu3e5ea3htlsd" path="res://scripts/level_manager.gd" id="5_p4hxj"]
 [ext_resource type="PackedScene" uid="uid://csshqhix1rbkj" path="res://scenes/update_scene.tscn" id="7_rkrwd"]
 [ext_resource type="PackedScene" uid="uid://djhvys50wrlyj" path="res://scenes/CRT_Layer.tscn" id="9_xbyi8"]
+[ext_resource type="PackedScene" uid="uid://d2vs7f4jx7c26" path="res://scenes/pause_menu.tscn" id="10_a7rej"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_rkrwd"]
 atlas = ExtResource("2_p4hxj")
@@ -448,5 +449,11 @@ position = Vector2(857, 621)
 visible = false
 
 [node name="CanvasLayer" parent="." instance=ExtResource("9_xbyi8")]
+
+[node name="PauseMenu" parent="." instance=ExtResource("10_a7rej")]
+offset_left = 532.0
+offset_top = 300.0
+offset_right = 532.0
+offset_bottom = 300.0
 
 [connection signal="body_entered" from="Deadzone" to="." method="_on_deadzone_body_entered"]

@@ -18,6 +18,9 @@ extends Node2D
 @export var spawn_above_ceiling: float = 0.0
 @export var kill_y: float = 2000.0
 
+var paused = false
+@onready var pause_menu = $PauseMenu
+
 var ballIncrease = 1
 var ballSpeedMultiplier: float = 1.0
 
@@ -37,15 +40,27 @@ var _colors: Array[Color] = [
 	Color(0.68, 1, 0.18, 1),
 ]
 
+func _process(delta: float) -> void:
+	if Input.is_action_just_pressed("quit_game"):
+		pauseMenu()
 
 func _ready() -> void:
-	pass
+	pause_menu.hide()
 	_rng.randomize()
 	set_physics_process(true)
 
 	_compute_spawn_from_marker()
 	_setup_timer()
 
+func pauseMenu():
+	if paused:
+		pause_menu.hide()
+		Engine.time_scale = 1
+	else:
+		pause_menu.show()
+		Engine.time_scale = 0
+
+	paused = !paused
 
 func _physics_process(delta: float) -> void:
 	for brick in get_tree().get_nodes_in_group(BRICK_GROUP):
@@ -156,6 +171,9 @@ func increase_all_balls_speed(multiplier: float = 1.2) -> void:
 
 func increase_max_health(amount: int = 2) -> void:
 	GameManager.increaseMaxHealth(amount)
+
+func increase_speed(amount: int = 20) -> void:
+	GameManager.increaseSpeed(amount)
 
 func increase_all_balls_size(multiplier: float = 1.1) -> void:
 	ballIncrease *= multiplier

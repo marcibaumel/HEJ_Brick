@@ -1,5 +1,6 @@
 extends Node
 
+var speed = 1000
 var score = 0
 var level = 1
 var _exp_points = 0
@@ -47,6 +48,7 @@ func _process(delta: float) -> void:
 	var current_scene = get_tree().current_scene
 	var is_menu = current_scene != null and current_scene.name == "MainMenu"
 
+
 	if is_menu:
 		$CanvasLayer.visible = false
 	else:
@@ -72,9 +74,6 @@ func addExp(points: int) -> void:
 		_exp_points = 0
 		levelUp()
 
-func _input(event):
-	if event.is_action_pressed("quit_game"):
-		get_tree().quit()
 
 func levelUp() -> void:
 	level += 1
@@ -107,3 +106,7 @@ func heal(amount: int) -> void:
 		health = maxHealth
 	else:
 		health = currentHealth
+
+func increaseSpeed(amount: int) -> void:
+	speed += amount
+	print("Increased speed to:", speed)
