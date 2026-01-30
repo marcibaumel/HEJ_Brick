@@ -5,6 +5,7 @@ var lockedYAxis: float
 var is_active := true
 
 @onready var animatedSprite = $AnimatedSprite2D
+@onready var bounceSound = $BounceSound
 
 func _ready() -> void:
 	lockedYAxis = global_position.y
@@ -45,6 +46,10 @@ func interact_with_ball() -> void:
 func _on_area_2d_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Exp"):
 		print("exp detected!")
+
+	if body.is_in_group("Ball"):
+		bounceSound.pitch_scale = randf_range(1, 1.5)
+		bounceSound.play()
 	
 	is_active = false
 	animatedSprite.play("hit")

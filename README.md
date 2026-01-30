@@ -13,3 +13,4 @@ This is a repository about january HEJ game jam.
 - [Grape Soda Font](https://www.dafont.com/grapesoda-2.font)
 - [Music](https://opengameart.org/content/hungry-dino-9-chiptune-tracks-10-sfx)
 - [Destroy sound](https://opengameart.org/content/crash-collision)
+- [Bounce sound](https://opengameart.org/content/funny-comic-cartoon-bounce-sound)

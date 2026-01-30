@@ -1,9 +1,10 @@
-[gd_scene load_steps=17 format=3 uid="uid://cxw0uns6qia0x"]
+[gd_scene load_steps=18 format=3 uid="uid://cxw0uns6qia0x"]
 
 [ext_resource type="Script" uid="uid://c6vejke2gagr0" path="res://scripts/paddle.gd" id="1_y7wee"]
 [ext_resource type="Texture2D" uid="uid://bhdhdp5vtjt0i" path="res://assets/paddle_hit.png" id="2_kvcsl"]
 [ext_resource type="Texture2D" uid="uid://bmfkbf3q6kia7" path="res://assets/paddle.png" id="2_mo4dg"]
 [ext_resource type="Texture2D" uid="uid://cbhwr2aejdcc" path="res://assets/paddlev2-Sheet.png" id="2_pacq5"]
+[ext_resource type="AudioStream" uid="uid://cy8rrk0qmmt37" path="res://assets/sfx/bounce.ogg" id="5_kvcsl"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_es3fg"]
 atlas = ExtResource("2_kvcsl")
@@ -134,6 +135,10 @@ collision_mask = 2
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="expDetaction"]
 shape = SubResource("CapsuleShape2D_pacq5")
+
+[node name="BounceSound" type="AudioStreamPlayer2D" parent="."]
+stream = ExtResource("5_kvcsl")
+volume_db = 1.0
 
 [connection signal="body_entered" from="Area2D" to="." method="_on_area_2d_body_entered"]
 [connection signal="body_exited" from="Area2D" to="." method="_on_area_2d_body_exited"]

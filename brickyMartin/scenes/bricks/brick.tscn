@@ -367,7 +367,8 @@ animations = [{
 size = Vector2(30, 31.5)
 
 [sub_resource type="Gradient" id="Gradient_0w5h4"]
-colors = PackedColorArray(0.761533, 0.0647106, 0.347074, 1, 0.830285, 0.146144, 0.168325, 1)
+offsets = PackedFloat32Array(0.010101, 1)
+colors = PackedColorArray(0.867315, 0.781664, 3.85046e-07, 1, 0.830285, 0.146144, 0.168325, 1)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_7oinx"]
 size = Vector2(122, 100)
@@ -383,7 +384,9 @@ texture = ExtResource("2_ou3qe")
 position = Vector2(2, 2)
 scale = Vector2(1.06, 1.06)
 stream = ExtResource("3_i3s86")
-volume_db = -5.0
+volume_db = -10.0
+pitch_scale = 0.5
+attenuation = 0.353554
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
@@ -405,15 +408,14 @@ amount = 100
 lifetime = 0.5
 one_shot = true
 preprocess = 0.5
+speed_scale = 0.5
 randomness = 1.0
 draw_order = 1
 emission_shape = 1
-emission_sphere_radius = 24.0
-gravity = Vector2(0, -500)
-linear_accel_min = 0.1
-linear_accel_max = 0.1
-scale_amount_min = 0.0
-scale_amount_max = 2.0
+emission_sphere_radius = 30.0
+gravity = Vector2(0, 100)
+scale_amount_min = 2.0
+scale_amount_max = 10.0
 color_ramp = SubResource("Gradient_0w5h4")
 
 [node name="PaddleDetect" type="Area2D" parent="."]

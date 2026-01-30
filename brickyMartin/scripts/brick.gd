@@ -36,7 +36,7 @@ func destroyBrick() -> void:
 	# Disable the rigid body so it doesn't push the ball back
 	set_collision_layer(0)
 	set_collision_mask(0)
-		
+	destroySound.pitch_scale = randf_range(0.5, 1)
 	destroySound.play()
 	await get_tree().create_timer(0.5).timeout
 	queue_free()
