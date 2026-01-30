@@ -21,6 +21,7 @@ script = ExtResource("1_n87rw")
 visible = false
 
 [node name="HighScoreLabel" type="Label" parent="."]
+visible = false
 offset_left = -574.0
 offset_top = -321.0
 offset_right = -488.0
