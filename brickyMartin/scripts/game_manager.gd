@@ -17,19 +17,16 @@ var save_data = {
 
 const SAVE_PATH = "user://bricky/save_game.dat"
 
+@onready var LevelUpSound = $LevelUpSound
+
 func _ready():
 	print(ProjectSettings.globalize_path("user://"))
 	load_game()
 	_update_audio_bus()
 
 func _update_audio_bus() -> void:
-	# 0 is usually the "Master" bus index
 	var bus_index = AudioServer.get_bus_index("Master")
-	# Convert 0.0 -> 1.0 range to Decibels
-	# linear_to_db(0) is -80 (silent), linear_to_db(1) is 0 (full)
 	AudioServer.set_bus_volume_db(bus_index, linear_to_db(audioLevel))
-	
-	# Optional: Mute if volume is 0
 	AudioServer.set_bus_mute(bus_index, audioLevel <= 0.05)
 
 func save_game():
@@ -92,6 +89,8 @@ func addExp(points: int) -> void:
 
 func levelUp() -> void:
 	level += 1
+	LevelUpSound.pitch_scale = randf_range(1.5, 2.0)
+	LevelUpSound.play()
 	print("Level up! New level:", level)
 	$UpdateScene.show_update_scene()
 
