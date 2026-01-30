@@ -416,7 +416,7 @@ position = Vector2(958.75, 455.75)
 scale = Vector2(5.835, 5.835)
 sprite_frames = SubResource("SpriteFrames_1vy03")
 autoplay = "default"
-frame_progress = 0.543565
+frame_progress = 0.555827
 
 [node name="MenuButtonContainer" type="VBoxContainer" parent="."]
 layout_mode = 1

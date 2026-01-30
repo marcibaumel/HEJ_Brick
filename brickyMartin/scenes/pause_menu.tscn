@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://d2vs7f4jx7c26"]
+[gd_scene load_steps=5 format=3 uid="uid://d2vs7f4jx7c26"]
 
 [ext_resource type="Script" uid="uid://dv7fxhy5h2ywk" path="res://scripts/pause_menu.gd" id="1_n87rw"]
 [ext_resource type="PackedScene" uid="uid://djhvys50wrlyj" path="res://scenes/CRT_Layer.tscn" id="2_myx47"]
+[ext_resource type="FontFile" uid="uid://dw8bkt3xw86mf" path="res://assets/fonts/GrapeSoda.ttf" id="3_kukqi"]
+
+[sub_resource type="StyleBoxTexture" id="StyleBoxTexture_5d2l8"]
 
 [node name="PauseMenu" type="Control"]
 layout_mode = 3
@@ -17,18 +20,33 @@ script = ExtResource("1_n87rw")
 [node name="CanvasLayer" parent="." instance=ExtResource("2_myx47")]
 visible = false
 
+[node name="HighScoreLabel" type="Label" parent="."]
+offset_left = -574.0
+offset_top = -321.0
+offset_right = -488.0
+offset_bottom = -298.0
+theme_override_font_sizes/font_size = 50
+text = "High score:"
+
+[node name="HighScorePoint" type="Label" parent="."]
+texture_filter = 1
+offset_left = -574.0
+offset_top = -248.0
+offset_right = -440.0
+offset_bottom = -208.0
+theme_override_fonts/font = ExtResource("3_kukqi")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxTexture_5d2l8")
+uppercase = true
+
 [node name="MarginContainer" type="MarginContainer" parent="."]
 layout_mode = 1
-anchors_preset = 8
-anchor_left = 0.5
+anchors_preset = 4
 anchor_top = 0.5
-anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -35.0
-offset_top = -33.0
-offset_right = 35.0
-offset_bottom = 33.0
-grow_horizontal = 2
+offset_top = -251.0
+offset_right = 588.0
+offset_bottom = 251.0
 grow_vertical = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="MarginContainer"]
