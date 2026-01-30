@@ -1,7 +1,8 @@
-[gd_scene load_steps=58 format=3 uid="uid://durp7bi8hfpa1"]
+[gd_scene load_steps=59 format=3 uid="uid://durp7bi8hfpa1"]
 
 [ext_resource type="Script" uid="uid://djt6fqi5jc61k" path="res://scripts/brick.gd" id="1_7oinx"]
 [ext_resource type="Texture2D" uid="uid://bl615d216itbc" path="res://assets/brick.png" id="2_ou3qe"]
+[ext_resource type="AudioStream" uid="uid://0itoqihxmufc" path="res://assets/sfx/crash.ogg" id="3_i3s86"]
 [ext_resource type="Texture2D" uid="uid://cxhd3elo1ma5g" path="res://assets/358525490.png" id="3_ou3qe"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_i3s86"]
@@ -378,6 +379,12 @@ script = ExtResource("1_7oinx")
 visible = false
 texture = ExtResource("2_ou3qe")
 
+[node name="DestroySound" type="AudioStreamPlayer2D" parent="."]
+position = Vector2(2, 2)
+scale = Vector2(1.06, 1.06)
+stream = ExtResource("3_i3s86")
+volume_db = -5.0
+
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 texture_filter = 1
 position = Vector2(2, 2)
@@ -385,7 +392,7 @@ scale = Vector2(1.06, 1.06)
 sprite_frames = SubResource("SpriteFrames_t63w1")
 animation = &"idle"
 autoplay = "idle"
-frame_progress = 0.8044
+frame_progress = 0.451388
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
 position = Vector2(0, -0.5)
