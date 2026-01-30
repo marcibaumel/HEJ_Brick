@@ -14,3 +14,4 @@ This is a repository about january HEJ game jam.
 - [Music](https://opengameart.org/content/hungry-dino-9-chiptune-tracks-10-sfx)
 - [Destroy sound](https://opengameart.org/content/crash-collision)
 - [Bounce sound](https://opengameart.org/content/funny-comic-cartoon-bounce-sound)
+- [Level up sound](https://opengameart.org/content/level-up-power-up-coin-get-13-sounds)
