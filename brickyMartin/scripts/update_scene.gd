@@ -52,8 +52,13 @@ func _select_button_by_index(index: int) -> void:
 func create_button(data: Dictionary) -> void:
 	var btn = ability_button_scene.instantiate()
 	btn.text = data["display_text"]
+	var label = btn.get_node("Description")
+
+	if label:
+		label.text = data["description"]
+
 	container.add_child(btn)
-	
+
 	# Connect the signal dynamically using a lambda or bind, this is bullshit
 	btn.pressed.connect(_on_ability_selected.bind(data["method"]))
 

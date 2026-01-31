@@ -48,9 +48,7 @@ func spawn_exp() -> void:
 	get_parent().add_child(drop)
 	drop.global_position = global_position
 
-	# CHANGED: randf() < 0.2 means a 20% chance for heal. 
-	# If you leave it at 1.0, it will ALWAYS be a heal.
-	if randf() < 0.5:
+	if randf() < 0.2:
 		drop.init_item("heal", Color.CHARTREUSE)
 	else:
 		drop.init_item("xp", Color.SKY_BLUE)

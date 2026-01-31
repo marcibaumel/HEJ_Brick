@@ -22,6 +22,7 @@ visible = false
 
 [node name="HighScoreLabel" type="Label" parent="."]
 visible = false
+layout_mode = 0
 offset_left = -574.0
 offset_top = -321.0
 offset_right = -488.0
@@ -31,6 +32,7 @@ text = "High score:"
 
 [node name="HighScorePoint" type="Label" parent="."]
 texture_filter = 1
+layout_mode = 0
 offset_left = -574.0
 offset_top = -248.0
 offset_right = -440.0
