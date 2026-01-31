@@ -14,6 +14,7 @@ func _ready():
 func init_item(new_type: String, new_color: Color):
 	type = new_type
 	$Sprite2D.modulate = new_color
+	$AnimatedSprite2D.modulate = new_color
 
 func _on_body_entered(body: Node2D) -> void:
 	if body.is_in_group("Paddle"):
