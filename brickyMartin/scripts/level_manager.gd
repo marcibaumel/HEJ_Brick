@@ -6,5 +6,6 @@ func _process(_delta):
 
 func _input(event):
 	if event.is_action_pressed("destroy_children"):
-		GameManager.levelUp()
+		pass
+		# GameManager.levelUp()
 	

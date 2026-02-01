@@ -1,7 +1,10 @@
-[gd_scene load_steps=3 format=3 uid="uid://csshqhix1rbkj"]
+[gd_scene load_steps=5 format=3 uid="uid://csshqhix1rbkj"]
 
 [ext_resource type="Script" uid="uid://cw4cvl4fof3ge" path="res://scripts/update_scene.gd" id="1_vkgge"]
 [ext_resource type="PackedScene" uid="uid://duqj1jxw4btxl" path="res://scenes/ability_button.tscn" id="2_qvnkn"]
+[ext_resource type="FontFile" uid="uid://dw8bkt3xw86mf" path="res://assets/fonts/GrapeSoda.ttf" id="3_d534p"]
+
+[sub_resource type="StyleBoxEmpty" id="StyleBoxEmpty_wle7j"]
 
 [node name="UpdateScene" type="CanvasLayer"]
 process_mode = 3
@@ -30,3 +33,17 @@ alignment = 1
 
 [node name="AbilityButton" parent="HBoxContainer" instance=ExtResource("2_qvnkn")]
 layout_mode = 2
+
+[node name="Label" type="Label" parent="."]
+texture_filter = 2
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -20.0
+offset_right = 20.0
+offset_bottom = 23.0
+grow_horizontal = 2
+theme_override_fonts/font = ExtResource("3_d534p")
+theme_override_font_sizes/font_size = 100
+theme_override_styles/normal = SubResource("StyleBoxEmpty_wle7j")
+text = "SUPERPOWER"

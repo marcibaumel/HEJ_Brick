@@ -74,7 +74,7 @@ func _on_exp_detaction_body_entered(body: Node2D) -> void:
 			GameManager.addExp(10) # Your custom XP amount
 		
 		# Visual feedback
-		animatedSprite.play("hit")
+		# animatedSprite.play("hit")
 		
 		# Remove the orb so it doesn't stay on screen
 		body.queue_free()

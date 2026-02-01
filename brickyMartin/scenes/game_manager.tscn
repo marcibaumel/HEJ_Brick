@@ -37,6 +37,7 @@ text = "dev"
 horizontal_alignment = 1
 
 [node name="Label" type="Label" parent="CanvasLayer"]
+visible = false
 offset_right = 333.0
 offset_bottom = 191.0
 text = "Press Escape to Exit

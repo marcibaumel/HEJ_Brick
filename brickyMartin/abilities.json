@@ -3,19 +3,19 @@
     "id": "ball_plus",
     "display_text": "BALL+",
     "method": "add_ball",
-    "description": "Spawns an additional ball into play to increase your hit rate."
+    "description": "Spawns an additional light ball into play to increase your hit rate. High risk, high reward!"
   },
   {
     "id": "size_plus",
     "display_text": "SIZE+",
     "method": "increase_all_balls_size",
-    "description": "Increases the diameter of all active balls, making them harder to miss."
+    "description": "Increases the size of all active light balls."
   },
   {
     "id": "range_plus",
     "display_text": "RANGE+",
     "method": "grow_all_paddles_exp_detection",
-    "description": "Expands the paddle's reach, allowing you to catch balls from further away."
+    "description": "Expands the paddle's reach, allowing you to catch exp points with bigger radius."
   },
   {
     "id": "speed_up",
@@ -25,7 +25,7 @@
   },
   {
     "id": "increase_max_health",
-    "display_text": "MAX HEALTH+",
+    "display_text": "HEALTH+",
     "method": "increase_max_health",
     "description": "Extends your maximum health capacity for better endurance."
   },
@@ -33,6 +33,6 @@
     "id": "increase_speed",
     "display_text": "PADDLE+",
     "method": "increase_speed",
-    "description": "Improves paddle movement speed for quicker reflexes."
+    "description": "Improves paddle movement speed."
   }
 ]

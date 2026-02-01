@@ -48,12 +48,8 @@ func spawn_exp() -> void:
 	get_parent().add_child(drop)
 	drop.global_position = global_position
 
-	if randf() < 0.5:
+	if randf() < 0.2:
 		var heal_color = Color.CHARTREUSE
-		# Chartreuse is (R: 0.5, G: 1.0, B: 0.0) approx.
-		# To make it "Greener", we remove the Red that makes it Yellow.
-		heal_color.r -= 0.3  # Lowering Red pushes it toward Lime/Pure Green
-		heal_color.g += 0.1  # Max out the green just in case
 		drop.init_item("heal", heal_color)
 	else:
 		drop.init_item("xp", Color.WHITE)
